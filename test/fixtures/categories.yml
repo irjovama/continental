@@ -1,15 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  test: one
-  title: MyString
+  name: MyString
   category: one
-  index: 1
-  weight: 1
 
 two:
-  test: two
-  title: MyString
+  name: MyString
   category: two
-  index: 1
-  weight: 1
