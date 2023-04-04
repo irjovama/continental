@@ -35,3 +35,9 @@ sub2_description2 = Description.create(result: sub2_result2, title: "sub1 result
 
 #asignar encuesta
 member.tests << test
+
+questions = member.tests.first.questions
+
+questions.each do |q|
+    UserQuestion.create(user: member, question: q, evaluation: rand(10))
+end
