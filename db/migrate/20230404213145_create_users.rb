@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :middlename
       t.string :lastname
       t.string :email
-      t.integer :leader_id
+      t.references :leader
 
       t.timestamps
     end
