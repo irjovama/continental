@@ -5,7 +5,7 @@ class CreateQuestions < ActiveRecord::Migration[7.0]
       t.string :title
       t.references :category, null: false, foreign_key: true
       t.integer :index
-      t.integer :weight
+      t.float :weight
 
       t.timestamps
     end

@@ -33,7 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_231711) do
     t.string "title"
     t.integer "category_id", null: false
     t.integer "index"
-    t.integer "weight"
+    t.float "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_questions_on_category_id"
