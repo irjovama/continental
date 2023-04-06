@@ -85,13 +85,20 @@ class ReportController < ApplicationController
                 if q.user_id == params[:test_id]
                     response[:test][:self_count_questions] += 1
                     response[:test][:self_evaluation] += q.evaluation * question.weight
+                    response[:test][:self_average] = response[:test][:self_count_questions].positive? && response[:test][:self_evaluation] / response[:test][:self_count_questions]
+        
                     response[:categories][index][:self_count_questions] += 1
                     response[:categories][index][:self_evaluation] += q.evaluation * question.weight
                     response[:categories][index][:self_average] = response[:categories][index][:self_count_questions].positive? && response[:categories][index][:self_evaluation] / response[:categories][index][:self_count_questions]
+                
+                    response[:categories][index][:sub_categories][sub_index][:self_count_questions] += 1
+                    response[:categories][index][:sub_categories][sub_index][:self_evaluation] += q.evaluation * question.weight
+                    response[:categories][index][:sub_categories][sub_index][:self_average] = response[:categories][index][:sub_categories][sub_index][:self_count_questions].positive? && response[:categories][index][:sub_categories][sub_index][:self_evaluation] / response[:categories][index][:sub_categories][sub_index][:self_count_questions]
                 else
                     response[:test][:members_count_questions] += 1
                     response[:test][:members_evaluation] += q.evaluation * question.weight
-
+                    response[:test][:members_average] = response[:test][:members_count_questions].positive? && response[:test][:members_evaluation] / response[:test][:members_count_questions]
+        
                     response[:categories][index][:members_count_questions] += 1
                     response[:categories][index][:members_evaluation] += q.evaluation * question.weight
                     response[:categories][index][:members_average] = response[:categories][index][:members_count_questions].positive? && response[:categories][index][:members_evaluation] / response[:categories][index][:members_count_questions]
@@ -104,8 +111,6 @@ class ReportController < ApplicationController
         end
 
 
-        response[:test][:members_average] = response[:test][:members_count_questions].positive? && response[:test][:members_evaluation] / response[:test][:members_count_questions]
-        response[:test][:self_average] = response[:test][:self_count_questions].positive? && response[:test][:self_evaluation] / response[:test][:self_count_questions]
         
 
         render json: response
