@@ -23,6 +23,7 @@ def obj_response(params)
             self_evaluation: 0,
             self_count_questions: 0,
             self_average: 0,
+            results: []
         },
         categories: [
 
@@ -42,6 +43,7 @@ def create_categories(questions)
             self_evaluation: 0,
             self_count_questions: 0,
             self_average: 0,
+            results: [],
             sub_categories: 
                 questions.select do | q2| 
                     q2.category.parent_id == q.category.parent.id 
@@ -56,6 +58,7 @@ def create_categories(questions)
                         self_evaluation: 0,
                         self_count_questions: 0,
                         self_average: 0,
+                        results: [],
                     }
                 end.uniq
             
@@ -110,10 +113,23 @@ class ReportController < ApplicationController
             end
         end
 
-
         
-
-        render json: response
+        
+        rend = response[:categories].map do |parent|
+            Result.where("category_id = ? and ? between min_range and max_range", parent[:id], parent[:members_average] * 10)
+            .map do |r| 
+                parent[:results] << r.descriptions[0]
+            end
+            parent[:sub_categories].map do |children|
+                Result.where("category_id = ? and ? between min_range and max_range", children[:id], children[:members_average] * 10)
+                .map do |r| 
+                    children[:results] << r.descriptions[0]
+                end
+            end
+            parent
+        end
+        render json: rend
+        # render json: response
         
     end
 end
