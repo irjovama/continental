@@ -16,4 +16,9 @@ Rails.application.routes.draw do
   post '/api/v1/tests', to: 'tests#create'
   put '/api/v1/tests/:id', to: 'tests#update'
   delete '/api/v1/tests/:id', to: 'tests#destroy'
+
+
+  get '/api/v1/users/:user_id/tests', to: 'user_tests#index'
+  get '/api/v1/users/:user_id/tests/:test_id', to: 'user_tests#show'
+
 end
