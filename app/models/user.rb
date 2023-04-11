@@ -7,4 +7,7 @@ class User < ApplicationRecord
 
     has_many :user_question
     has_many :answers, through: :user_question
+
+    validates :email, uniqueness: true
+    validates :name, presence: true
 end
