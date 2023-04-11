@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   # end
 
   resources :categories, only: [:index, :show, :destroy, :update, :create], path: '/api/v1/categories'
+  resources :questions, only: [:index, :show, :destroy, :update, :create], path: '/api/v1/questions'
+
 end
