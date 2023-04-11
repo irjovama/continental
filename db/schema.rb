@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_11_195618) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_11_203458) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.integer "parent_id"
@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_11_195618) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "option_id", null: false
+    t.integer "question_type"
     t.index ["category_id"], name: "index_questions_on_category_id"
     t.index ["option_id"], name: "index_questions_on_option_id"
     t.index ["test_id"], name: "index_questions_on_test_id"
