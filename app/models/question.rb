@@ -1,10 +1,10 @@
 class Question < ApplicationRecord
-  validates :category_id, :weight, :test_id, :title, presence: true
+  validates :category_id, :weight, :test_id, :title, :option_id, presence: true
   validates :title, length: { in: 4..110 }
   validates :weight, numericality: {greater_than: 0}
   validates :index, uniqueness: true
 
-
+  belongs_to :option
   belongs_to :test
   belongs_to :category
 

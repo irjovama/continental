@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
+  skip_before_action :verify_authenticity_token, raise: false
   before_action :set_category, only: %i[show update destroy]
-  skip_before_action :verify_authenticity_token
 
   def index 
     categories = Category.all

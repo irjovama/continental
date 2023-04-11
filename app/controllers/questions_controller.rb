@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
+  skip_before_action :verify_authenticity_token, raise: false
   before_action :set_question, only: %i[show update destroy]
-  skip_before_action :verify_authenticity_token
 
   def index 
     questions = Question.all
@@ -45,7 +45,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:title, :category_id, :weight, :test_id, :index)
+    params.require(:question).permit(:title, :category_id, :weight, :test_id, :index, :option_id)
   end
 
 end
