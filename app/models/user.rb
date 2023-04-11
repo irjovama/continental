@@ -10,4 +10,14 @@ class User < ApplicationRecord
 
     validates :email, uniqueness: true
     validates :name, presence: true
+
+    validate :user_exist
+
+    private 
+
+    def user_exist
+        errors.add(:leader_id, "Couldn't find Leader with id") unless User.exists?(id: leader_id)
+    end
 end
+
+

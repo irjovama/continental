@@ -25,12 +25,14 @@ class UserController < ApplicationController
         
     end
     def destroy
-        @user = User.find(params[:id])
-        if @user.delete
+        begin
+            @user = User.find(params[:id])
+            @user.delete
             render json: {success: true}
-        else
-            render json: { success: false, errors: @user.errors.full_messages }, status: :unprocessable_entity
+        rescue ActiveRecord::RecordNotFound => e
+            render json: { success: false, errors: e.message }, status: :unprocessable_entity
         end
+
     end
     def user_params
         params.permit(:name, :middlename, :lastname, :email, :leader_id)
