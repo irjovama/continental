@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   resources :options, only: [:index, :show, :destroy, :update, :create], path: '/api/v1/options'
   resources :descriptions, only: [:index, :show, :destroy, :update, :create], path: '/api/v1/descriptions'
   resources :results, only: [:index, :show, :destroy, :update, :create], path: '/api/v1/results'
-
+  resources :user_questions, only: [:index, :show, :destroy, :update, :create], path: '/api/v1/user_questions'
 
 end
