@@ -3,7 +3,7 @@ class Question < ApplicationRecord
   validates :title, length: { in: 4..110 }
   validates :weight, numericality: {greater_than: 0}
   validates :index, uniqueness: true
-  validates :question_type, inclusion: { in: %w(0 1), message: "%{value} is not a valid option" }
+  enum question_type: [ :points, :text_input ]
 
   belongs_to :option
   belongs_to :test

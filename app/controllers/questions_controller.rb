@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      render json: @question, notice: "Employee was successfully updated."
+      render json: @question, notice: "Question was successfully updated."
     else
       render json: @question.errors.full_messages, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     questions = Question.all
-    render json: questions, notice: "Category was successfully destroyed.",
+    render json: questions, notice: "Question was successfully destroyed.",
                               status: :see_other
   end
 

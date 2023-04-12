@@ -23,7 +23,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      render json: @category, notice: "Employee was successfully updated."
+      render json: @category, notice: "Category was successfully updated."
     else
       render json: @category.errors.full_messages, status: :unprocessable_entity
     end

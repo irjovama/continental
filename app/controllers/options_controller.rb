@@ -23,7 +23,7 @@ class OptionsController < ApplicationController
   
     def update
       if @option.update(option_params)
-        render json: @option, notice: "Employee was successfully updated."
+        render json: @option, notice: "Option was successfully updated."
       else
         render json: @option.errors.full_messages, status: :unprocessable_entity
       end
@@ -33,7 +33,7 @@ class OptionsController < ApplicationController
     def destroy
       @option.destroy
       options = Option.all
-      render json: options, notice: "Category was successfully destroyed.",
+      render json: options, notice: "Option was successfully destroyed.",
                                 status: :see_other
     end
   
