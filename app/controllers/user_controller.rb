@@ -39,24 +39,24 @@ class UserController < ApplicationController
         @test = @user.user_tests.find_by("test_id", params[:test_id])
         
         require 'mail'
-
         Mail.defaults do
             delivery_method :smtp, {
-                address: 'smtp.gmail.com',
-                port: 587,
+                address: ENV['EMAIL_ADDRESS'],
+                port: ENV['EMAIL_PORT'],
                 user_name: ENV['EMAIL_USER'],
                 password: ENV['EMAIL_PASSWORD'],
-                authentication: :login,
-                encryption: :tls
+                authentication: ENV['EMAIL_AUTHENTICATION'].to_sym, 
+                encryption: ENV['EMAIL_ENCRYPTION'].to_sym
             }
         end
-
+        token =  @test.token
         mail = Mail.new do |m|
-            m.from    'irjovama@gmail.com'
-            m.to      'univcotincodeable@gmail.com'
+            m.from    ENV['EMAIL_USER']
+            m.to      params[:email]
             m.subject "Invitación Encuesta #{@test.test.title}"
-            m.html_part = "<h1>#{@test.test.title}</h1> <b>Por favor da click en el siguiente link para contestar la encuesta</b> "
-            # m.add_file './adjunto.csv'
+            m.html_part = "<h1>#{@test.test.title}</h1> 
+                            <b>Por favor da click en el siguiente link para contestar la encuesta</b> 
+                            #{ENV['START_PAGE']}?token=#{token}"
         end
         begin
             mail.deliver
