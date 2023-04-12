@@ -1,7 +1,7 @@
 class Category < ApplicationRecord
   # validations
   validates :name, :weight, presence: true
-  validates :name, length: { in: 4..30 }
+  validates :name, length: { in: 4..40 }
   validates :weight, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 1}
 
   validates_associated :questions

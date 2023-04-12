@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_11_004631) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_11_203458) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.integer "parent_id"
@@ -29,6 +29,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_11_004631) do
     t.index ["result_id"], name: "index_descriptions_on_result_id"
   end
 
+  create_table "options", force: :cascade do |t|
+    t.string "upper_option"
+    t.string "lower_option"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "questions", force: :cascade do |t|
     t.integer "test_id", null: false
     t.string "title"
@@ -37,7 +44,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_11_004631) do
     t.float "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "option_id", null: false
+    t.integer "question_type"
     t.index ["category_id"], name: "index_questions_on_category_id"
+    t.index ["option_id"], name: "index_questions_on_option_id"
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
@@ -94,6 +104,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_11_004631) do
 
   add_foreign_key "descriptions", "results"
   add_foreign_key "questions", "categories"
+  add_foreign_key "questions", "options"
   add_foreign_key "questions", "tests"
   add_foreign_key "results", "categories"
   add_foreign_key "user_questions", "questions"
