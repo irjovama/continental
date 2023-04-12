@@ -34,6 +34,37 @@ class UserController < ApplicationController
         end
 
     end
+    def magic_link
+        @user = User.where("email=?", params[:email]).first
+        @test = @user.user_tests.find_by("test_id", params[:test_id])
+        
+        require 'mail'
+
+        Mail.defaults do
+            delivery_method :smtp, {
+                address: 'smtp.gmail.com',
+                port: 587,
+                user_name: ENV['EMAIL_USER'],
+                password: ENV['EMAIL_PASSWORD'],
+                authentication: :login,
+                encryption: :tls
+            }
+        end
+
+        mail = Mail.new do |m|
+            m.from    'irjovama@gmail.com'
+            m.to      'univcotincodeable@gmail.com'
+            m.subject "Invitación Encuesta #{@test.test.title}"
+            m.html_part = "<h1>#{@test.test.title}</h1> <b>Por favor da click en el siguiente link para contestar la encuesta</b> "
+            # m.add_file './adjunto.csv'
+        end
+        begin
+            mail.deliver
+            render json: {status: "success"}
+        rescue Net::SMTPAuthenticationError => e
+            render json: {status: "Fail", errors: e.message}, status: :unprocessable_entity
+        end
+    end
     def user_params
         params.permit(:name, :middlename, :lastname, :email, :leader_id)
     end
