@@ -36,8 +36,15 @@ class UserController < ApplicationController
     end
     def magic_link
         @user = User.where("email=?", params[:email]).first
-        @test = @user.user_tests.find_by("test_id", params[:test_id])
-        
+        if(@user.nil?)
+            render json: {"status": "fail", "errors": "Usuario no encontrado"} , status: :unprocessable_entity 
+            return
+        end
+        @test = @user.user_tests.where("test_id =? and status=?", params[:test_id], 0).first
+        if(@test.nil?)
+            render json: {"status": "fail", "errors": "El usuario no tiene asignada esta encuesta o ya la respondió"} , status: :unprocessable_entity 
+            return
+        end
         require 'mail'
         Mail.defaults do
             delivery_method :smtp, {
@@ -62,7 +69,7 @@ class UserController < ApplicationController
             mail.deliver
             render json: {status: "success"}
         rescue Net::SMTPAuthenticationError => e
-            render json: {status: "Fail", errors: e.message}, status: :unprocessable_entity
+            render json: {status: "fail", errors: e.message}, status: :unprocessable_entity
         end
     end
     def user_params
