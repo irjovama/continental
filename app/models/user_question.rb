@@ -3,6 +3,14 @@ class UserQuestionValidator < ActiveModel::Validator
     if record.question.question_type != "points" && record.evaluation.to_i > 0
       record.errors.add :base, "This is not a points type of question"
     end
+
+    if record.question.question_type == "points" && record.evaluation.to_i == 0
+      record.errors.add :base, "This type of questions only receive numbers greater than 0"
+    end
+
+    if record.question.question_type == "points" && record.evaluation.to_i > 10
+      record.errors.add :base, "This type of question only receive a maximum point of 10"
+    end
   end
 end
 
