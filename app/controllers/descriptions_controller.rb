@@ -23,7 +23,7 @@ class DescriptionsController < ApplicationController
 
   def update
     if @description.update(description_params)
-      render json: @description, notice: "Employee was successfully updated."
+      render json: @description, notice: "Description was successfully updated."
     else
       render json: @description.errors.full_messages, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class DescriptionsController < ApplicationController
   def destroy
     @description.destroy
     descriptions = Description.all
-    render json: descriptions, notice: "Category was successfully destroyed.",
+    render json: descriptions, notice: "Description was successfully destroyed.",
                               status: :see_other
   end
 

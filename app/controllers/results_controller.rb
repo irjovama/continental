@@ -23,7 +23,7 @@ class ResultsController < ApplicationController
 
   def update
     if @result.update(result_params)
-      render json: @result, notice: "Employee was successfully updated."
+      render json: @result, notice: "Result was successfully updated."
     else
       render json: @result.errors.full_messages, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class ResultsController < ApplicationController
   def destroy
     @result.destroy
     results = Result.all
-    render json: results, notice: "Category was successfully destroyed.",
+    render json: results, notice: "Result was successfully destroyed.",
                               status: :see_other
   end
 

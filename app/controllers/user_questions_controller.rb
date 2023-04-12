@@ -1,6 +1,6 @@
 class UserQuestionsController < ApplicationController
   skip_before_action :verify_authenticity_token, raise: false
-  before_action :set_user_question, only: %i[show update destroy]
+  before_action :set_user_question, only: %i[show destroy]
 
   def index 
     user_questions = UserQuestion.all
@@ -21,19 +21,10 @@ class UserQuestionsController < ApplicationController
     render json: @user_question
   end
 
-  def update
-    if @user_question.update(user_question_params)
-      render json: @user_question, notice: "Employee was successfully updated."
-    else
-      render json: @user_question.errors.full_messages, status: :unprocessable_entity
-    end
-  end
-
-
   def destroy
     @user_question.destroy
     user_questions = UserQuestion.all
-    render json: user_questions, notice: "Category was successfully destroyed.",
+    render json: user_questions, notice: "User Question was successfully destroyed.",
                               status: :see_other
   end
 
