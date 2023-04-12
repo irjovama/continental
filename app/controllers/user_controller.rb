@@ -4,8 +4,12 @@ class UserController < ApplicationController
         render json: @Users
     end
     def show
-        @user = User.find(params[:id])
-        render json: @user
+        user = User.find(params[:id])
+        leader = user.leader ? user.leader.attributes : {}
+        user_data = user.attributes
+        user_data["is_leader"] = User.where("leader_id=?", params[:id]).size.positive?
+        user_data["leader"] = leader
+        render json:user_data
     end
     def update
         @user = User.find(params[:id])
