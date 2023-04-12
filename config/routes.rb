@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   # get '/api/v1/users/:user_id/tests', to: 'user_tests#index'
   # get '/api/v1/users/:user_id/tests/:test_id', to: 'user_tests#show'
-  
+  post '/api/v1/magic-link', to: 'user#magic_link'
   resources :tests, only: [:index, :show, :destroy, :update, :create], path: '/api/v1/tests'
   resources :user, only: [:index, :show, :destroy, :update, :create], path: '/api/v1/users'
 
