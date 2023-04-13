@@ -35,9 +35,8 @@ class UserController < ApplicationController
 
     end
     def magic_link
-        @user = User.where("email=?", params[:email]).first
-        @test = @user.user_tests.find_by("test_id", params[:test_id])
-        
+        user = User.where("email=?", params[:email]).first
+        test = user.user_tests.find_by("test_id", params[:test_id])
         require 'mail'
         Mail.defaults do
             delivery_method :smtp, {
@@ -49,12 +48,12 @@ class UserController < ApplicationController
                 encryption: ENV['EMAIL_ENCRYPTION'].to_sym
             }
         end
-        token =  @test.token
+        token =  test.token
         mail = Mail.new do |m|
             m.from    ENV['EMAIL_USER']
             m.to      params[:email]
-            m.subject "Invitación Encuesta #{@test.test.title}"
-            m.html_part = "<h1>#{@test.test.title}</h1> 
+            m.subject "Invitación Encuesta #{test.test.title}"
+            m.html_part = "<h1>#{test.test.title}</h1> 
                             <b>Por favor da click en el siguiente link para contestar la encuesta</b> 
                             #{ENV['START_PAGE']}?token=#{token}"
         end

@@ -1,7 +1,7 @@
 boss = User.create(name: "Boss", email: "boss@email.com")
-member = User.create(name: "Member 1", leader: boss, email: "member1@gmail.com")
+member = User.create(name: "Member 1", leader: boss, email: "univcotincodeable@gmail.com")
 member2 = User.create(name: "Member 2", leader: boss, email: "member2@gmail.com")
-test = Test.create(title: "Encuesta de lideres", description: "descripcion")
+test1 = Test.create(title: "Encuesta de lideres", description: "descripcion")
 option = Option.create(upper_option: "Fuertemente de acuerdo", lower_option: "Fuertemente en desacuerdo")
 option2 = Option.create(upper_option: "Siento feliz conmigo mismo", lower_option: "Siento triste conmigo mismo")
 parent_category = Category.create(name: "Entrega de resultados", weight: 1)
@@ -52,15 +52,14 @@ require 'securerandom'
 
 
 UserTest.create(
-    user: boss,
-    test: test,
-    evaluated_id: boss.id,
+    user_id: 1,
+    test_id: 1,
+    evaluated_id: 1,
     status: 0,
     token:  SecureRandom.hex(16)
 )
 
-
-questions = member.tests.first.questions
+questions = boss.user_tests.first.test.questions
 
 questions.each do |q|
     UserQuestion.create(user: member, question: q, evaluation: rand(10))
@@ -70,15 +69,14 @@ end
 #esto sería en el endpoint 
 
 UserTest.create(
-    user: member,
-    test: test1,
-    evaluated_id: boss.id,
+    user_id: 2,
+    test_id: 1,
+    evaluated_id: 1,
     status: 1,
     token:  SecureRandom.hex(16)
 )
 
-
-questions = member.tests.first.questions
+questions = member.user_tests.first.test.questions
 
 questions.each do |q|
     UserQuestion.create(user: member, question: q, evaluation: rand(10))
@@ -89,15 +87,14 @@ end
 #esto sería en el endpoint 
 
 UserTest.create(
-    user: member2,
-    test: test1,
-    evaluated_id: boss.id,
+    user_id: 3,
+    test_id: 1,
+    evaluated_id: 1,
     status: 1,
     token:  SecureRandom.hex(16)
 )
 
-
-questions = member2.tests.first.questions
+questions = member2.user_tests.first.test.questions
 
 questions.each do |q|
     UserQuestion.create(user: member2, question: q, evaluation: rand(10))
