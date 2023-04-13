@@ -11,7 +11,7 @@ class User < ApplicationRecord
     validates :email, uniqueness: true
     validates :name, presence: true
 
-    validate :user_exist
+    # validate :user_exist
 
     private 
 

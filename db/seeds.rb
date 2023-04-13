@@ -8,9 +8,9 @@ parent_category = Category.create(name: "Entrega de resultados", weight: 1)
 sub_category = Category.create(name: "Conecta los logros con el equipo", parent: parent_category, weight: 0.4 )
 sub_category2 = Category.create(name: "Ejecuta con efectividad", parent: parent_category, weight: 0.4 )
 sub_category3 = Category.create(name: "Cumple con responsabilidad", parent: parent_category, weight: 0.2 )
-q1 = Question.create(title: "pregunta 1", category: sub_category, test: test, weight: 1, option: option, question_type: 0)
-q2 = Question.create(title: "pregunta 2", category: sub_category, test: test, weight: 1, option: option, question_type: 0)
-q3 = Question.create(title: "pregunta 3", category: sub_category2, test: test, weight: 1, option: option2, question_type: 0)
+q1 = Question.create(title: "pregunta 1", category: sub_category, test: test1, weight: 1, option: option, question_type: 0, index: 1)
+q2 = Question.create(title: "pregunta 2", category: sub_category, test: test1, weight: 1, option: option, question_type: 0, index: 2)
+q3 = Question.create(title: "pregunta 3", category: sub_category2, test: test1, weight: 1, option: option2, question_type: 0, index: 3)
 
 parent_result = Result.create(category: parent_category, min_range: 0, max_range: 50)
 parent_result2 = Result.create(category: parent_category, min_range: 51, max_range: 100)
@@ -32,9 +32,9 @@ sub_category = Category.create(name: "crea seguridad psicologica", parent: paren
 sub_category2 = Category.create(name: "Desarrolla confianza", parent: parent_category, weight: 1 )
 option = Option.create(upper_option: "Muy ansioso", lower_option: "En paz conmigo mismo")
 option2 = Option.create(upper_option: "Responsable", lower_option: "Cero sentido de la responsabilidad")
-q1 = Question.create(title: "pregunta 1", category: sub_category, test: test, weight: 1, option: option, question_type: 0 )
-q2 = Question.create(title: "pregunta 2", category: sub_category, test: test, weight: 1, option: option, question_type: 1)
-q3 = Question.create(title: "pregunta 3", category: sub_category2, test: test, weight: 1, option: option2, question_type: 1)
+q1 = Question.create(title: "pregunta 1", category: sub_category, test: test1, weight: 1, option: option, question_type: 0, index: 4 )
+q2 = Question.create(title: "pregunta 2", category: sub_category, test: test1, weight: 1, option: option, question_type: 1, index: 5)
+q3 = Question.create(title: "pregunta 3", category: sub_category2, test: test1, weight: 1, option: option2, question_type: 1, index: 6)
 
 parent_result = Result.create(category: parent_category, min_range: 0, max_range: 50)
 parent_result2 = Result.create(category: parent_category, min_range: 51, max_range: 100)
@@ -71,7 +71,7 @@ end
 
 UserTest.create(
     user: member,
-    test: test,
+    test: test1,
     evaluated_id: boss.id,
     status: 1,
     token:  SecureRandom.hex(16)
@@ -90,7 +90,7 @@ end
 
 UserTest.create(
     user: member2,
-    test: test,
+    test: test1,
     evaluated_id: boss.id,
     status: 1,
     token:  SecureRandom.hex(16)
