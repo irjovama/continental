@@ -1,8 +1,7 @@
-
-boss = User.create(name: "Boss")
-member = User.create(name: "Member 1", leader: boss)
-member2 = User.create(name: "Member 2", leader: boss)
-test = Test.create(title: "Encuesta de lideres")
+boss = User.create(name: "Boss", email: "boss@email.com")
+member = User.create(name: "Member 1", leader: boss, email: "member1@gmail.com")
+member2 = User.create(name: "Member 2", leader: boss, email: "member2@gmail.com")
+test = Test.create(title: "Encuesta de lideres", description: "descripcion")
 option = Option.create(upper_option: "Fuertemente de acuerdo", lower_option: "Fuertemente en desacuerdo")
 option2 = Option.create(upper_option: "Siento feliz conmigo mismo", lower_option: "Siento triste conmigo mismo")
 parent_category = Category.create(name: "Entrega de resultados", weight: 1)
@@ -49,8 +48,23 @@ sub2_result = Result.create(category: sub_category2, min_range: 0, max_range: 50
 sub2_result2 = Result.create(category: sub_category2, min_range: 51, max_range: 100)
 sub2_description1 = Description.create(result: sub2_result, title: "sub2 result 0 to 50", body: "the body")
 sub2_description2 = Description.create(result: sub2_result2, title: "sub2 result 51 to 100", body: "the body")
+require 'securerandom'
 
 
+UserTest.create(
+    user: boss,
+    test: test,
+    evaluated_id: boss.id,
+    status: 0,
+    token:  SecureRandom.hex(16)
+)
+
+
+questions = member.tests.first.questions
+
+questions.each do |q|
+    UserQuestion.create(user: member, question: q, evaluation: rand(10))
+end
 
 #asignar encuesta
 #esto sería en el endpoint 
@@ -60,7 +74,7 @@ UserTest.create(
     test: test,
     evaluated_id: boss.id,
     status: 1,
-    token: "abc"
+    token:  SecureRandom.hex(16)
 )
 
 
@@ -79,7 +93,7 @@ UserTest.create(
     test: test,
     evaluated_id: boss.id,
     status: 1,
-    token: "abc"
+    token:  SecureRandom.hex(16)
 )
 
 

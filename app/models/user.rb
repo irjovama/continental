@@ -16,7 +16,7 @@ class User < ApplicationRecord
     private 
 
     def user_exist
-        errors.add(:leader_id, "Couldn't find Leader with id") unless User.exists?(id: leader_id)
+        errors.add(:leader_id, "Couldn't find Leader with id") unless User.exists?(id: leader_id) || leader_id.nil?
     end
 end
 
