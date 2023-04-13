@@ -87,11 +87,11 @@ class ReportController < ApplicationController
                 sub_index = response[:categories][index][:sub_categories].find_index {|c| c[:id] == q.question.category_id }
                 if q.user_id == params[:test_id]
                     response[:test][:self_count_questions] += 1
-                    response[:test][:self_evaluation] += q.evaluation * question.weight
+                    response[:test][:self_evaluation] += q.evaluation.to_i * question.weight
                     response[:test][:self_average] = response[:test][:self_count_questions].positive? && response[:test][:self_evaluation] / response[:test][:self_count_questions]
         
                     response[:categories][index][:self_count_questions] += 1
-                    response[:categories][index][:self_evaluation] += q.evaluation * question.weight
+                    response[:categories][index][:self_evaluation] += q.evaluation.to_i * question.weight
                     response[:categories][index][:self_average] = response[:categories][index][:self_count_questions].positive? && response[:categories][index][:self_evaluation] / response[:categories][index][:self_count_questions]
                 
                     response[:categories][index][:sub_categories][sub_index][:self_count_questions] += 1
@@ -99,15 +99,15 @@ class ReportController < ApplicationController
                     response[:categories][index][:sub_categories][sub_index][:self_average] = response[:categories][index][:sub_categories][sub_index][:self_count_questions].positive? && response[:categories][index][:sub_categories][sub_index][:self_evaluation] / response[:categories][index][:sub_categories][sub_index][:self_count_questions]
                 else
                     response[:test][:members_count_questions] += 1
-                    response[:test][:members_evaluation] += q.evaluation * question.weight
+                    response[:test][:members_evaluation] += q.evaluation.to_i * question.weight
                     response[:test][:members_average] = response[:test][:members_count_questions].positive? && response[:test][:members_evaluation] / response[:test][:members_count_questions]
         
                     response[:categories][index][:members_count_questions] += 1
-                    response[:categories][index][:members_evaluation] += q.evaluation * question.weight
+                    response[:categories][index][:members_evaluation] += q.evaluation.to_i * question.weight
                     response[:categories][index][:members_average] = response[:categories][index][:members_count_questions].positive? && response[:categories][index][:members_evaluation] / response[:categories][index][:members_count_questions]
                     
                     response[:categories][index][:sub_categories][sub_index][:members_count_questions] += 1
-                    response[:categories][index][:sub_categories][sub_index][:members_evaluation] += q.evaluation * question.weight
+                    response[:categories][index][:sub_categories][sub_index][:members_evaluation] += q.evaluation.to_i * question.weight
                     response[:categories][index][:sub_categories][sub_index][:members_average] = response[:categories][index][:sub_categories][sub_index][:members_count_questions].positive? && response[:categories][index][:sub_categories][sub_index][:members_evaluation] / response[:categories][index][:sub_categories][sub_index][:members_count_questions]
                 end
             end
