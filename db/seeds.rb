@@ -11,7 +11,6 @@ sub_category = Category.create(name: "Conecta los logros con el equipo", parent:
 sub_category2 = Category.create(name: "Ejecuta con efectividad", parent: parent_category, weight: 0.4 )
 sub_category3 = Category.create(name: "Cumple con responsabilidad", parent: parent_category, weight: 0.2 )
 q1 = Question.create(title: "pregunta 1" + question_details, category: sub_category, test: test1, weight: 1, option: option, question_type: 0, index: 1)
-pp q1.errors.full_messages
 q2 = Question.create(title: "pregunta 2"+ question_details, category: sub_category, test: test1, weight: 1, option: option, question_type: 0, index: 2)
 q3 = Question.create(title: "pregunta 3"+ question_details, category: sub_category2, test: test1, weight: 1, option: option2, question_type: 0, index: 3)
 q4 = Question.create(title: "pregunta 1"+ question_details, category: sub_category2, test: test2, weight: 1, option: option2, question_type: 0, index: 1)
