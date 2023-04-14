@@ -8,7 +8,7 @@ class DescriptionsController < ApplicationController
   end
 
   def create
-    @description = Option.new(description_params)
+    @description = Description.new(description_params)
     if @description.save
       render json: @description, status: :created
     else

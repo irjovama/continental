@@ -8,7 +8,7 @@ class UserQuestionsController < ApplicationController
   end
 
   def create
-    @user_question = Result.new(user_question_params)
+    @user_question = UserQuestion.new(user_question_params)
     if @user_question.save
       render json: @user_question, status: :created
     else
