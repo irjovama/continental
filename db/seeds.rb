@@ -13,7 +13,7 @@ sub_category3 = Category.create(name: "Cumple con responsabilidad", parent: pare
 q1 = Question.create(title: "pregunta 1" + question_details, category: sub_category, test: test1, weight: 1, option: option, question_type: 0, index: 1)
 q2 = Question.create(title: "pregunta 2"+ question_details, category: sub_category, test: test1, weight: 1, option: option, question_type: 0, index: 2)
 q3 = Question.create(title: "pregunta 3"+ question_details, category: sub_category2, test: test1, weight: 1, option: option2, question_type: 0, index: 3)
-q4 = Question.create(title: "pregunta 1"+ question_details, category: sub_category2, test: test2, weight: 1, option: option2, question_type: 0, index: 1)
+q4 = Question.create(title: "pregunta 1"+ question_details, category: sub_category2, test: test2, weight: 1, question_type: 0, index: 1)
 
 parent_result = Result.create(category: parent_category, min_range: 0, max_range: 50)
 parent_result2 = Result.create(category: parent_category, min_range: 51, max_range: 100)

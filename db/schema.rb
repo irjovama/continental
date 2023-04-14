@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_14_162228) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_14_183007) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.integer "parent_id"
@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_14_162228) do
     t.float "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "option_id", null: false
+    t.integer "option_id"
     t.integer "question_type"
     t.index ["category_id"], name: "index_questions_on_category_id"
     t.index ["option_id"], name: "index_questions_on_option_id"
