@@ -1,9 +1,10 @@
 question_details = " ¿Volutpat consequat bibendum nisl dictum quisque. Vel habitant dictum nibh scelerisque leo sed in ut ac?"
+test_description = "Volutpat consequat bibendum nisl dictum quisque. Vel habitant dictum nibh scelerisque leo sed in ut ac. Ultrices eu nisl volutpat feugiat amet lorem nisi duis amet. Lectus dui leo gravida risus nunc metus pellentesque quam nullam. Ultricies vitae id enim feugiat sed id. Sed aliquam magna felis eu fames justo senectus tincidunt."
 boss = User.create(name: "Boss", email: "boss@email.com")
 member = User.create(name: "Member 1", leader: boss, email: "univcotincodeable@gmail.com")
 member2 = User.create(name: "Member 2", leader: boss, email: "member2@gmail.com")
-test1 = Test.create(title: "Encuesta de lideres", description: "descripcion")
-test2 = Test.create(title: "Encuesta de subordinados", description: "descripcion")
+test1 = Test.create(title: "Encuesta de lideres", description: test_description)
+test2 = Test.create(title: "Encuesta de subordinados", description: test_description)
 option = Option.create(upper_option: "Fuertemente de acuerdo", lower_option: "Fuertemente en desacuerdo")
 option2 = Option.create(upper_option: "Siento feliz conmigo mismo", lower_option: "Siento triste conmigo mismo")
 parent_category = Category.create(name: "Entrega de resultados", weight: 1)
