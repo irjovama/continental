@@ -1,8 +1,7 @@
 class Question < ApplicationRecord
-  validates :category_id, :weight, :test_id, :title, :option_id, :question_type, presence: true
+  validates :category_id, :weight, :test_id, :title, :option_id, :question_type, :index, presence: true
   validates :title, length: { in: 4..110 }
   validates :weight, numericality: {greater_than: 0}
-  validates :index, uniqueness: true
   enum question_type: [ :points, :text_input ]
 
   belongs_to :option

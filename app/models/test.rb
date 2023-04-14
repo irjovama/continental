@@ -3,8 +3,8 @@ class Test < ApplicationRecord
     has_many :users, through: :user_tests
     has_many :questions
 
-    validates :title, uniqueness: true
-    validates :description, presence: true
+    validates :title, presence: :true
+    validates :description, presence: :true
     
     has_many :questions, dependent: :destroy
 end

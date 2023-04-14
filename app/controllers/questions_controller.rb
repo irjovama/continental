@@ -3,8 +3,13 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: %i[show update destroy]
 
   def index 
-    questions = Question.all
-    render json: questions
+    if params[:test_id]
+      questions = Question.where(["test_id = ?", params[:test_id]])
+      render json: questions
+    else 
+      questions = Question.all
+      render json: questions
+    end
   end
 
   def create
