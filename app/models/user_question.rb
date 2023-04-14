@@ -11,6 +11,10 @@ class UserQuestionValidator < ActiveModel::Validator
     if record.question.question_type == "points" && record.evaluation.to_i > 10
       record.errors.add :base, "This type of question only receive a maximum point of 10"
     end
+
+    if record.question.question_type == "text_input" && record.evaluation.length < 5
+      record.errors.add :base, "Please write more than 5 characters"
+    end
   end
 end
 

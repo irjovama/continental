@@ -1,4 +1,5 @@
 question_details = " ¿Volutpat consequat bibendum nisl dictum quisque. Vel habitant dictum nibh scelerisque leo sed in ut ac?"
+answer_text = "Volutpat consequat bibendum nisl dictum quisque. Vel habitant dictum nibh scelerisque leo sed in ut ac."
 test_description = "Volutpat consequat bibendum nisl dictum quisque. Vel habitant dictum nibh scelerisque leo sed in ut ac. Ultrices eu nisl volutpat feugiat amet lorem nisi duis amet. Lectus dui leo gravida risus nunc metus pellentesque quam nullam. Ultricies vitae id enim feugiat sed id. Sed aliquam magna felis eu fames justo senectus tincidunt."
 boss = User.create(name: "Boss", email: "boss@email.com")
 member = User.create(name: "Member 1", leader: boss, email: "univcotincodeable@gmail.com")
@@ -83,7 +84,8 @@ UserTest.create(
 questions = member.user_tests.first.test.questions
 
 questions.each do |q|
-    UserQuestion.create(user: member, question: q, evaluation: rand(10))
+    q.question_type == "points" ? question = UserQuestion.create(user: member, question: q, evaluation: rand(10)) :
+    question = UserQuestion.create(user: member, question: q, evaluation: answer_text)
 end
 
 
