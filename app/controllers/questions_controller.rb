@@ -50,7 +50,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:title, :category_id, :weight, :test_id, :index, :option_id)
+    params.require(:question).permit(:title, :category_id, :weight, :test_id, :index, :option_id, :question_type)
   end
 
 end
