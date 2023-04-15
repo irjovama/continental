@@ -84,7 +84,7 @@ UserTest.create(
     token:  SecureRandom.hex(16)
 )
 
-questions = member.user_tests.first.test.questions
+# questions = member.user_tests.first.test.questions
 
 # questions.each do |q|
 #     q.question_type == "points" ? question = UserQuestion.create(user: member, question: q, evaluation: rand(10)) :

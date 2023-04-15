@@ -2,9 +2,9 @@ class Question < ApplicationRecord
   validates :category_id, :weight, :test_id, :title, :question_type, :index, presence: true
   validates :title, length: { in: 4..190 }
   validates :weight, numericality: {greater_than: 0}
-  enum question_type: [ :points, :text_input ]
+  enum question_type: [ :points, :text_input, :points_reverse ]
   validates :index, uniqueness: { scope: :test_id }
-  validates :option_id, presence: true,  if: Proc.new{ |question| question.question_type == "points"  }
+  validates :option_id, presence: true,  if: Proc.new{ |question| question.question_type == "points" || question.question_type == "points_reverse"  }
 
   belongs_to :option, optional: true
   belongs_to :test

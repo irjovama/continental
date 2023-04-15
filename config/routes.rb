@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   get '/api/v1/report', to: 'report#index'
 
   # get '/api/v1/users/:user_id/tests', to: 'user_tests#index'
-  # get '/api/v1/users/:user_id/tests/:test_id', to: 'user_tests#show'
+  get '/api/v1/user_tests/:id', to: 'user_tests#show'
+  put '/api/v1/user_tests/:id', to: 'user_tests#update'
+  get '/api/v1/user_tests/:id/questions', to: 'user_tests#questions'
+
   post '/api/v1/magic-link', to: 'user#magic_link'
   resources :tests, only: [:index, :show, :destroy, :update, :create], path: '/api/v1/tests' do
     resources :questions, only:[:index]
@@ -21,4 +24,5 @@ Rails.application.routes.draw do
   resources :results, only: [:index, :show, :destroy, :update, :create], path: '/api/v1/results'
   resources :user_questions, only: [:index, :show, :destroy, :create], path: '/api/v1/user_questions'
 
+  
 end

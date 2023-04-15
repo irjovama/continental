@@ -35,8 +35,13 @@ class UserController < ApplicationController
 
     end
     def magic_link
-        user = User.where("email=?", params[:email]).first
-        test = user.user_tests.find_by("test_id", params[:test_id])
+        begin
+            user = User.where("email=?", params[:email]).first
+            test = user.user_tests.find_by("test_id", params[:test_id])
+        rescue NoMethodError => e
+            render json: {status: "Fail", errors: "El email no tiene permiso"}, status: :unprocessable_entity
+            return
+        end
         require 'mail'
         Mail.defaults do
             delivery_method :smtp, {

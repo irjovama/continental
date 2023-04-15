@@ -4,8 +4,12 @@ class TestsController < ApplicationController
         render json: @test
     end
     def show
-        @test = Test.find(params[:id])
-        render json: @test
+        begin
+            @test = Test.find(params[:id])
+            render json: @test
+        rescue
+            render json: { error: "Test not found" }, status: 404
+        end
     end
     def update
         @test = Test.find(params[:id])

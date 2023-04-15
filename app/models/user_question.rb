@@ -21,7 +21,7 @@ end
 
 class UserQuestion < ApplicationRecord
   validates :user_id, :question_id, :evaluation, presence: :true
-  validates_with UserQuestionValidator
+  # validates_with UserQuestionValidator
 
   belongs_to :user
   belongs_to :question
