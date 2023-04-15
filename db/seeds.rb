@@ -67,11 +67,11 @@ UserTest.create(
     token:  SecureRandom.hex(16)
 )
 
-questions = boss.user_tests.first.test.questions
+# questions = boss.user_tests.first.test.questions
 
-questions.each do |q|
-    UserQuestion.create(user: member, question: q, evaluation: rand(10))
-end
+# questions.each do |q|
+#     UserQuestion.create(user: member, question: q, evaluation: rand(10))
+# end
 
 #asignar encuesta
 #esto sería en el endpoint 
@@ -86,10 +86,10 @@ UserTest.create(
 
 questions = member.user_tests.first.test.questions
 
-questions.each do |q|
-    q.question_type == "points" ? question = UserQuestion.create(user: member, question: q, evaluation: rand(10)) :
-    question = UserQuestion.create(user: member, question: q, evaluation: answer_text)
-end
+# questions.each do |q|
+#     q.question_type == "points" ? question = UserQuestion.create(user: member, question: q, evaluation: rand(10)) :
+#     question = UserQuestion.create(user: member, question: q, evaluation: answer_text)
+# end
 
 
 #asignar encuesta
@@ -103,97 +103,10 @@ UserTest.create(
     token:  SecureRandom.hex(16)
 )
 
-questions = member2.user_tests.first.test.questions
+# questions = member2.user_tests.first.test.questions
 
-questions.each do |q|
-    UserQuestion.create(user: member2, question: q, evaluation: rand(10))
-end
-
-
-
-####seedddd completo 
-
-# test_id = 1 #param
-# boss_id = User.find(1).id #param
-
-# puts "###################"
-# puts "ejemplo de endpoint"
-# puts "localhost/reports/leaders/#{boss_id}/tests/#{test_id}"
-# puts "###################"
-
-
-# def obj_response(boss_id)
-#     {
-#         test: {
-#             id: nil,
-#             title: nil,
-#             users_total: User.find(boss_id).members.size,
-#             members_evaluation: 0,
-#             count_evaluations: 0,
-#             average: 0,
-#         },
-#         category: {
-#             id: nil,
-#             name: nil,
-#             members_evaluation: 0,
-#             count_evaluations: 0,
-#             average: 0,
-#         },
-#         sub_categories: [
-    
-#         ], 
-#     }
+# questions.each do |q|
+#     UserQuestion.create(user: member2, question: q, evaluation: rand(10))
 # end
 
-# def obj_sub_categories(question, responses)
-#     if responses[:sub_categories].size.positive?
-#         if responses[:sub_categories].find { |r| r[:id] == question.category_id }
-#             return responses[:sub_categories]
-#         end
-#     end
-#     responses[:sub_categories] << {
-#         id: question.category_id, 
-#         name: question.category.name, 
-#         members_evaluation: 0,
-#         count_evaluations: 0,
-#         average: 0,
-#     }
-#     responses[:sub_categories]
-# end
-
-
-# def get_responses(boss_id, test_id)
-#     finish = 1
-#     responses = obj_response(boss_id)
-#     begin
-#         questions = UserTest.find_by(evaluated_id: boss_id, status: finish, test_id: test_id).test.questions
-#         questions.each do |question|
-#             responses[:test][:id] = question.test.id;
-#             responses[:test][:title] = question.test.title;
-#             responses[:test][:count_evaluations] = question.user_question.size
-#             responses[:category][:id] = question.category.parent_id;
-#             responses[:category][:name] = question.category.parent.name;
-#             responses[:sub_categories] = obj_sub_categories(question, responses)
-#             question.user_question.each do |q|
-#                 value = q.evaluation * question.weight
-#                 responses[:test][:count_evaluations] += 1
-#                 responses[:test][:members_evaluation] += value
-#                 responses[:test][:average] = responses[:category][:members_evaluation] / responses[:category][:count_evaluations]
-
-#                 responses[:category][:count_evaluations] += 1
-#                 responses[:category][:members_evaluation] += value
-#                 responses[:category][:average] = responses[:category][:members_evaluation] / responses[:category][:count_evaluations]
-#                 index = responses[:sub_categories].find_index{ |r| r[:id] == question.category_id} 
-#                 responses[:sub_categories][index][:count_evaluations] += 1
-#                 responses[:sub_categories][index][:members_evaluation] += value
-#                 responses[:sub_categories][index][:average] = responses[:sub_categories][index][:members_evaluation] / responses[:sub_categories][index][:count_evaluations]
-#             end
-#         end
-#     rescue NoMethodError
-#     end
-#     responses
-# end
-# #ya tenemos un arreglo llamado responses con las evaluaciones, categorias y subcategorias
-# responses = get_responses(boss_id, test_id)
-# pp responses
 
