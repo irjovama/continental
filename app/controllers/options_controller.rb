@@ -45,7 +45,7 @@ class OptionsController < ApplicationController
     end
   
     def option_params
-      params.require(:option).permit(:lower_option, :upper_option)
+      params.require(:option).permit(:lower_option, :upper_option, :middle_option)
     end
   
 end
