@@ -16,6 +16,7 @@ qlist <<
     {
         lo: "Nos da tareas especificas sin conectarnos como equipo",
         up: "Se enfoca en asegurar que todos entendemos el objetivo y nos organiza para todos contribuir y lograrlo.",
+        mi: "Nos conecta a nivel medio",
         ti: "Mi lider para conseguir los resultados esperados",
         ty: 0,
         ca: sub_category.id,
@@ -24,6 +25,7 @@ qlist <<
     {
         lo: "dandome confianza indicandome que debo hacer y para cuando tiene que estar listo.",
         up: "reconociendo mis fortalezas, asegurando que entiendo el objetivo y como impacto en un logro mayor",
+        mi: "en un nivel intermedio",
         ti: "Mi lider asigna tareas",
         ty: 0,
         ca: sub_category.id,
@@ -32,6 +34,7 @@ qlist <<
     {
         lo: "Tengo claro que hacer pero no reconozco mi impacto en el trabajo de mis demás compañeros",
         up: "Estan muy claras y todos en el equipo sabemos qué hace cada uno y como nos complementamos",
+        mi: "en un nivel intermedio",
         ti: "La organizaciòn de las funciones y responsabilidades del equipo",
         ty: 0,
         ca: sub_category.id,
@@ -40,6 +43,7 @@ qlist <<
     {
         lo: "Invertimos todos los recursos disponibles o excedemos lo previsto con tal de lograr el objetivo",
         up: "Asegura la inversiòn adecuada cuidando los presupuestos y maximizandolos",
+        mi: "en un nivel intermedio",
         ti: "Cuando se trata de gestionar los recursos que tenemos disponibles",
         ty: 0,
         ca: sub_category.id,
@@ -51,6 +55,7 @@ qlist <<
     {
         lo: "No lo tiene presente en el dìa a dìa ",
         up: "Vive el proposito en cada cosa que hacemos",
+        mi: "en un nivel intermedio",
         ti: "Cuando se trata del proposito de la organizaciòn mi lider",
         ty: 0,
         ca: sub_category.id,
@@ -59,6 +64,7 @@ qlist <<
     {
         lo: "No necesariamente lo conecta con como lograr lo que nos planteamos nos acerca a cumplir nuestro proposito.",
         up: "Comparte con el equipo como el logro del proyecto o el nuevo desafio nos acerca a vivir nuestro proposito",
+        mi: "en un nivel intermedio",
         ti: "Cuando iniciamos un proyecto o asumimos nuevos desafios mi lider ",
         ty: 0,
         ca: sub_category.id,
@@ -67,6 +73,7 @@ qlist <<
     {
         lo: "No lo tengo claro",
         up: "Lo tengo claro, Mi lider nos lo comenta siempre y nos impulsa por màs",
+        mi: "en un nivel intermedio",
         ti: "Mis funciones conectan con el propòsito de la organizaciòn ",
         ty: 0,
         ca: sub_category.id,
@@ -75,6 +82,7 @@ qlist <<
     {
         lo: "No lo tengo claro",
         up: "Lo vivimos en el dìa a dìa",
+        mi: "en un nivel intermedio",
         ti: "Conozco el proposito organizacional y lo vivimos en el dìa gracias a la gestiòn de mi lider",
         ty: 0,
         ca: sub_category.id,
@@ -88,6 +96,7 @@ qlist <<
     {
         lo: "Nos indica qué debemos hacer y para cuando debe estar listo",
         up: "Nos involucra en la forma de conseguir resultados, escucha nuestras propuestas, nos compromete y motiva",
+        mi: "en un nivel intermedio",
         ti: "Cuando iniciamos un proyecto mi lider ",
         ty: 0,
         ca: sub_category.id,
@@ -96,6 +105,7 @@ qlist <<
     {
         lo: "mi lider tiende a conocer que me motiva",
         up: "Mi lider sabe como motivarnos al equipo y a mi y maximizar nuestro  potencial",
+        mi: "en un nivel intermedio",
         ti: "Cuando hablamos de motivaciòn",
         ty: 0,
         ca: sub_category.id,
@@ -104,6 +114,7 @@ qlist <<
     {
         lo: "Mi lider tiende a frustrarse ",
         up: "Impulsa el trabajo colaborativo y encuentra caminos para accionar",
+        mi: "en un nivel intermedio",
         ti: "Cuando los proyectos o iniciativas no avanzan al ritmo que esperamos",
         ty: 0,
         ca: sub_category.id,
@@ -112,6 +123,7 @@ qlist <<
     {
         lo: "Invertimos todos los recursos disponibles y no prevee la organizaciòn del tiempo del equipo",
         up: "Organiza los presupuestos, el tiempo y dedicaciòn de los equipos asegurandoel mejor manejo",
+        mi: "en un nivel intermedio",
         ti: "La visiòn de mi lider sobre el uso de recursos (tiempo y presupuesto)",
         ty: 0,
         ca: sub_category.id,
@@ -125,6 +137,7 @@ qlist <<
     {
         lo: "No es muy clara. ",
         up: "Es muy genuina y esta presente en sus interacciones",
+        mi: "en un nivel intermedio",
         ti: "La conexiòn de mi lider con el proposito",
         ty: 0,
         ca: sub_category.id,
@@ -133,6 +146,7 @@ qlist <<
     {
         lo: "Nos indica la tarea a realizar y los tiempo para cumplirlos",
         up: "Nos comparte la visiòn del proyecto, nos indica nuestra responsabilidad y como nos acerca a seguir viviendo nuestro proposito",
+        mi: "en un nivel intermedio",
         ti: "Cuando mi lider propone nuevos proyectos",
         ty: 0,
         ca: sub_category.id,
@@ -141,6 +155,7 @@ qlist <<
     {
         lo: "De lo que realiza nuestra àrea y esperan de nosotros en el corto plazo",
         up: "De la organizaciòn y nuestra àrea , conecta nuestra responsabilidad y lo que se espera de nosotros en el corto y largo plazo",
+        mi: "en un nivel intermedio",
         ti: "Mi lider nos brinda claridad",
         ty: 0,
         ca: sub_category.id,
@@ -149,6 +164,7 @@ qlist <<
     {
         lo: "Asegurar que el equipo sepa lo que tiene que hacer",
         up: "Asegurar que el equipo sepa lo que tiene que hacer e influencia en las otras àreas; no solo alinea al equipo directo sino a todos los equipos involucrados.",
+        mi: "en un nivel intermedio",
         ti: "El alineamiento para mi lider es",
         ty: 0,
         ca: sub_category.id,
@@ -174,7 +190,8 @@ qlist.each do |q|
     pp index
     option = Option.create(
         upper_option: q[:up], 
-        lower_option: q[:lo])
+        lower_option: q[:lo],
+        middle_option: q[:mi])
     pp option
     q1 = Question.create(
                     title: q[:ti], 
