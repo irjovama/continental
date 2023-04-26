@@ -1,9 +1,9 @@
 class OptionResource < Avo::BaseResource
   self.title = :id
   self.includes = []
-  # self.search_query = -> do
-  #   scope.ransack(id_eq: params[:q], m: "or").result(distinct: false)
-  # end
+  self.search_query = -> do
+    scope.ransack(id_eq: params[:q], upper_option_cont: params[:q], middle_option_cont: params[:q], lower_option_cont: params[:q], m: "or").result(distinct: false)
+  end
 
   field :id, as: :id
   # Fields generated from the model

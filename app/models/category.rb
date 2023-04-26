@@ -11,4 +11,8 @@ class Category < ApplicationRecord
   has_many :results, dependent: :destroy
   has_many :questions, dependent: :destroy
   # belongs_to :category
+  def self.ransackable_attributes(auth_object = nil)
+    ["id", "name"]
+  end
+
 end

@@ -9,9 +9,12 @@ class User < ApplicationRecord
     has_many :answers, through: :user_question
 
     validates :email, uniqueness: true
-    validates :name, presence: true
+    validates :name, :middlename, :lastname, presence: true
 
     # validate :user_exist
+    def self.ransackable_attributes(auth_object = nil)
+        ["id", "name", "middlename", "lastname", "email"]
+    end
 
     private 
 
