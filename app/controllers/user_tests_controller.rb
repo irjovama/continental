@@ -1,6 +1,11 @@
 require_relative "../models/user"
 require_relative "../models/option"
 class UserTestsController < ApplicationController
+    def index
+        user_tests = UserTest.all;
+        render json: user_tests;
+    end 
+
     def update
         user_test = UserTest.where("token=?", params[:id]).first;
         if user_test.update(ut_params)

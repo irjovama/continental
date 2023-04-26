@@ -1,8 +1,8 @@
 index = 0
 
-boss = User.create(name: "Boss", email: "boss@email.com")
-member = User.create(name: "Member 1", leader: boss, email: "univcotincodeable@gmail.com")
-member2 = User.create(name: "Member 2", leader: boss, email: "member2@gmail.com")
+boss = User.create(name: "Boss", email: "boss@email.com", middlename: "Bossier", lastname: "James")
+member = User.create(name: "Member 1", leader: boss, email: "univcotincodeable@gmail.com", middlename: "Employee", lastname: "James")
+member2 = User.create(name: "Member 2", leader: boss, email: "member2@gmail.com", middlename: "Employee", lastname: "James")
 test1 = Test.create(title: "Medición de liderazgo", description: "test_description")
 index = 0
 qlist = []

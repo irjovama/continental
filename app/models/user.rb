@@ -9,11 +9,16 @@ class User < ApplicationRecord
     has_many :answers, through: :user_question
 
     validates :email, uniqueness: true
-    validates :name, :middlename, :lastname, presence: true
+    validates :name, :middlename, :lastname, :email, presence: true
 
     # validate :user_exist
     def self.ransackable_attributes(auth_object = nil)
         ["id", "name", "middlename", "lastname", "email"]
+    end
+
+    def full_name
+        fullname = name + " " + lastname
+        ActionView::Base.full_sanitizer.sanitize(fullname)
     end
 
     private 
