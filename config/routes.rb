@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # get '/api/v1/users/:user_id/tests', to: 'user_tests#index'
   get '/api/v1/user_tests/:id', to: 'user_tests#show'
+  # get '/api/v1/user_tests', to: 'user_tests#index'
   put '/api/v1/user_tests/:id', to: 'user_tests#update'
   get '/api/v1/user_tests/:id/questions', to: 'user_tests#questions'
 
