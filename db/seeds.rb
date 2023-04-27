@@ -9,9 +9,32 @@ qlist = []
 #crear una categoria
 parent_category = Category.create(name: "Entrega Resultados", weight: 1)
 pp parent_category
+
+
+
+
+
 #crear sub categoria
-sub_category = Category.create(name: "Liderar a Otros - Ejecuta con Efectividad", parent: parent_category, weight: 1 )
+sub_category = Category.create(name: "Liderar a Otros - Ejecuta con Efectividad", parent_id: parent_category.id, weight: 1 )
 pp sub_category
+
+
+
+result = Result.create( category_id: sub_category.id, min_range: 1, max_range: 50)
+description = Description.create(result_id: result.id,title: "1", body: "Organiza el trabajo y planifica las responsabilidades de todos los miembros del equipo.")
+description = Description.create(result_id: result.id,title: "2", body: "Conecta las funciones de todos los miembros del equipo y reflexiona con ellos sobre el impacto del área.")
+description = Description.create(result_id: result.id,title: "3", body: "Reflexiona sobre el uso de los recursos disponibles y propone la mejor forma de gestionarlo.")
+
+result = Result.create( category_id: sub_category.id, min_range: 51, max_range: 65)
+description = Description.create(result_id: result.id,title: "1", body: "Analiza si hay diferencias en tu forma de gestionar bajo presión o en momentos donde hay buenos resultados.")
+description = Description.create(result_id: result.id,title: "2", body: "Revisa con tu equipo como ellos perciben tu planificación en momentos de estrés o presión.")
+description = Description.create(result_id: result.id,title: "3", body: "Reflexiona como es tu gestión de los recursos disponibles.")
+
+result = Result.create( category_id: sub_category.id, min_range: 66, max_range: 100)
+description = Description.create(result_id: result.id,title: "1", body: "Pide feedback a tus reportes y clientes sobre las formas y tiempos en las entregas de los proyectos o información e identifica caminos que puedan ser mejores.")
+description = Description.create(result_id: result.id,title: "2", body: "Analiza con tu equipo si las responsabilidades son entregadas en forma y si se reconoce el impacto de la función individual y el impacto del equipo en las demás áreas y organización.")
+description = Description.create(result_id: result.id,title: "3", body: "Reflexiona sobre la gestión de recursos y si podemos generar eficiencias en las formas..")
+
 qlist << 
     {
         lo: "Nos da tareas especificas sin conectarnos como equipo",
@@ -49,7 +72,7 @@ qlist <<
         ca: sub_category.id,
     }
 #crear sub categoria
-sub_category = Category.create(name: "Liderar a Otros - Conecta los logros con el propósito", parent: parent_category, weight: 1 )
+sub_category = Category.create(name: "Liderar a Otros - Conecta los logros con el propósito", parent_id: parent_category.id, weight: 1 )
 pp sub_category
 qlist << 
     {
@@ -90,7 +113,7 @@ qlist <<
 
 
 #crear sub categoria
-sub_category = Category.create(name: "Lider Organizacional - Ejecuta con Efectividad", parent: parent_category, weight: 1 )
+sub_category = Category.create(name: "Lider Organizacional - Ejecuta con Efectividad", parent_id: parent_category.id, weight: 1 )
 pp sub_category
 qlist << 
     {
@@ -131,7 +154,7 @@ qlist <<
 
 
 #crear sub categoria
-sub_category = Category.create(name: "Lider Organizacional - Conecta los logros con el propòsito", parent: parent_category, weight: 1 )
+sub_category = Category.create(name: "Lider Organizacional - Conecta los logros con el propòsito", parent_id: parent_category.id, weight: 1 )
 pp sub_category
 qlist << 
     {
@@ -174,16 +197,314 @@ qlist <<
 
 
 
+#crear una categoria
+###############################################################################################################
+###############################################################################################################
+###############################################################################################################
+###############################################################################################################
+parent_category = Category.create(name: "Genera vinculos genuinos", weight: 1)
+
+
+
+#crear sub categoria
+sub_category = Category.create(name: "Liderar a otros - seguridad Psicológica y bienestar", parent_id: parent_category.id, weight: 1 )
+pp sub_category
+qlist <<{
+            lo: "Mi lìder propone buenas alternativas y caminos de acción",
+            up: "Siento que podemos aportar ideas para definir posturas y  un marco de acción",
+            mi: "en un nivel intermedio",
+            ti: "Cuando tenemos que abordar problemas o nuevas situaciones",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Siempre prevalecen las de mi lider",
+            up: "Siento que mis ideas y opiniones son valoradas por mi lider",
+            mi: "en un nivel intermedio",
+            ti: "Cuando tenemos diversas ideas en el equipo",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Se desarrollan en base a la necesidad ",
+            up: "son genuinas, basadas en el respeto y trascienden la función",
+            mi: "en un nivel intermedio",
+            ti: "La interacciòn de mi lider con otras áreas",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "prefiere un perfil de escucha y canalizar nuestras opiniones en el foro",
+            up: "Me impulsa a dar mi punto de vista, manifestar si estoy de acuerdo o en desacuerdo con lo planteado.",
+            mi: "en un nivel intermedio",
+            ti: "en reuniones con otras áreas mi lider",
+            ty: 0,
+            ca: sub_category.id,
+        }
+#crear sub categoria
+sub_category = Category.create(name: "Liderar a otros - Desarrollo de talento", parent_id: parent_category.id, weight: 1 )
+pp sub_category
+qlist <<{
+            lo: "solo cuando los procesos lo demandan",
+            up: "De forma constante y oportuna.",
+            mi: "en un nivel intermedio",
+            ti: "Recibo feedback de mi lider",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Es orientado a la tarea y qué cosas debo hacer diferente",
+            up: "Esta relacionado a como seguir desarrollandome, enfocado en competencias",
+            mi: "en un nivel intermedio",
+            ti: "El feedback de que recibo de mi lider",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Mi lider me dice que debo mejorar ",
+            up: "Mi lider me acompaña y me ayuda a construir un plan de desarrollo ",
+            mi: "en un nivel intermedio",
+            ti: "Cuando tengo  una brecha en mi desempeño",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Mi lider a veces me reconoce el buen trabajo",
+            up: "Mi lider reconoce el trabajo y nos impulsa a más",
+            mi: "en un nivel intermedio",
+            ti: "Cuando estoy haciendo las cosas bien",
+            ty: 0,
+            ca: sub_category.id,
+        }
+
+
+
+#crear sub categoria
+sub_category = Category.create(name: "Lider organizacional - seguridad Psicológica y bienestar", parent_id: parent_category.id, weight: 1 )
+pp sub_category
+qlist <<{
+            lo: "Mi lìder nos transmite su visiòn y hay poca flexibilidad para ver otras posibilidades. ",
+            up: "Nos invita a pensar fuera de la caja, escucha nuestras ideas y las reta",
+            mi: "en un nivel intermedio",
+            ti: "Cuando tenemos oportunidades de crear cosas nuevas",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Mi lìder siempre termina teniendo la razòn",
+            up: "Mi lider construye sobre las ideas del equipo, logrando encontrar alternativas muy potentes",
+            mi: "en un nivel intermedio",
+            ti: "Cuando tenemos diversas ideas en el equipo",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Se desarrollan en base a la necesidad ",
+            up: "son genuinas, basadas en el respeto ",
+            mi: "en un nivel intermedio",
+            ti: "La relaciòn de mi lider con otras àreas de la organizaciòn ",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Mi lider busca identificar las causas",
+            up: "Generamos aprendizajes, reconoce que pudo hacer diferente y nos da feedback",
+            mi: "en un nivel intermedio",
+            ti: "Cuando cometemos un error",
+            ty: 0,
+            ca: sub_category.id,
+        }
+
+
+#crear sub categoria
+sub_category = Category.create(name: "Lider organizacional - desarrollo de talento", parent_id: parent_category.id, weight: 1 )
+pp sub_category
+qlist <<{
+            lo: "Hacer mejor mi trabajo",
+            up: "Evolucionar como profesional y persona. Identifico mis oportunidades pero tambien soy conciente de mis fortalezas. ",
+            mi: "en un nivel intermedio",
+            ti: "El feedback que me da mi lider me permite",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "En algunas oportunidades",
+            up: "Siempre esta dispuesto a retarme y darme desafios que me ayuden a crecer",
+            mi: "en un nivel intermedio",
+            ti: "Mi lider orienta mi desarrollo profesional",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "No tengo tanta claridad, mi lider me da feedback sobre las funciones que realizo y como hacerlas mejor. ",
+            up: "Si, mi lider me acompaña en mi desarrollo ",
+            mi: "en un nivel intermedio",
+            ti: "Tengo claro que debo desarrollar para seguir creciendo en la organizaciòn",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Mi lider a veces me reconoce el buen trabajo",
+            up: "Mi lider reconoce el trabajo y nos impulsa a màs ",
+            mi: "en un nivel intermedio",
+            ti: "Cuando estoy haciendo las cosas bien",
+            ty: 0,
+            ca: sub_category.id,
+        }
 
 
 
 
 
+#crear una categoria
+###############################################################################################################
+###############################################################################################################
+###############################################################################################################
+###############################################################################################################
+parent_category = Category.create(name: "Construye y cuestiona el futuro", weight: 1)
+#crear sub categoria
+sub_category = Category.create(name: "Liderar a otros - reta el status quo", parent_id: parent_category.id, weight: 1 )
+pp sub_category
+qlist <<{
+            lo: "Busca los caminos conocidos",
+            up: "Nos impulsa a probar caminos nuevos",
+            mi: "en un nivel intermedio",
+            ti: "Cuando mi lider cuando debe resolver un problema",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Pocas veces",
+            up: "Analiza el contexto, y toma riesgos calculados. ",
+            mi: "en un nivel intermedio",
+            ti: "Mi lider toma riesgos",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Mi lider analiza las variables y toma decisiones basado en experiencias pasadas",
+            up: "Mi lider nos involucra, plantea el desafio y exploramos aspectos conocidos y nos invita a ir màs alla descubriendo nuevas alternativas",
+            mi: "en un nivel intermedio",
+            ti: "Cuando se trata de tomar una decisiòn",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Mi lider pone en evidencia que error cometimos y asegura que no lo volvamos a cometer",
+            up: "Mi lider reconoce el esfuerzo, busca generar aprendizajes y nos compromete a seguir exigiendonos. ",
+            mi: "en un nivel intermedio",
+            ti: "Cuando las cosas no salen bien",
+            ty: 0,
+            ca: sub_category.id,
+        }
+
+#crear sub categoria
+sub_category = Category.create(name: "Liderar a otros - Actitud emprendedora", parent_id: parent_category.id, weight: 1 )
+pp sub_category
+qlist <<{
+            lo: "Mi lider nos dice que debemos hacer",
+            up: "Mi lider fomenta que traigamos ideas diferentes y nos ayuda a llevarlas a cabo",
+            mi: "en un nivel intermedio",
+            ti: "Cuando queremos probar hacer las cosas diferente",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Es muy enfocado a la tarea",
+            up: "Es cercano, asegura que sepamos què hacer, como hacerlo y como nos estamos sintiendo",
+            mi: "en un nivel intermedio",
+            ti: "El acompañamiento de mi lider en los proyectos",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Mi lider se pone a la defensiva y pone excusas ",
+            up: "Es muy abierto a las sugerencias y escucha las opiniones de los demàs ",
+            mi: "en un nivel intermedio",
+            ti: "Cuando las àreas nos piden que hagamos las cosas diferentes",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Probamos la soluciòn directo con el usario",
+            up: "Mi lider asegura que probemos en pequeño, iteremos antes de lanzar la soluciòn",
+            mi: "en un nivel intermedio",
+            ti: "Cuando lanzamos nuevas soluciones",
+            ty: 0,
+            ca: sub_category.id,
+        }
+#crear sub categoria
+sub_category = Category.create(name: "Lider organizacional - Reta el status quo", parent_id: parent_category.id, weight: 1 )
+pp sub_category
+qlist <<{
+            lo: "Busca los caminos conocidos",
+            up: "Nos impulsa a probar caminos nuevos y nos acompaña ",
+            mi: "en un nivel intermedio",
+            ti: "Mi lider cuando debe resolver un problema",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Aseguremos que se mantenga asi. ",
+            up: "Siempre puede ser mejor",
+            mi: "en un nivel intermedio",
+            ti: "Según mi lider cuando algo esta bien",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Tiene un rol pasivo, no se involucra a menos que su funciòn este inmersa",
+            up: "Participa reconociendo las cosas que debemos mejorar, en que somos buenos y se pone al servicio",
+            mi: "en un nivel intermedio",
+            ti: "Cuando debemos generar aprendizajes como organizaciòn",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "A mi lider le cuesta ver caminos distintos a los usuales",
+            up: "Mi lider se compromete con analizar y proponer soluciones diferentes, nos impulsa a cuestionar y pensar màs allà",
+            mi: "en un nivel intermedio",
+            ti: "Cuando debemos generar transformaciones a los procesos que gestionamos",
+            ty: 0,
+            ca: sub_category.id,
+        }
 
 
-
-
-
+#crear sub categoria
+sub_category = Category.create(name: "Lider organizacional - Actitud emprendedora", parent_id: parent_category.id, weight: 1 )
+pp sub_category
+qlist <<{
+            lo: "Mi lìder se estresa y se centra en los errores",
+            up: "Mi lider nos invita a la reflexiòn, aprender y nos acompaña en el manejo de las emociones",
+            mi: "en un nivel intermedio",
+            ti: "Cuando las cosas no salen como esperamos",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "En algunas ocasiones",
+            up: "Siempre ",
+            mi: "en un nivel intermedio",
+            ti: "Me siento respaldado por mi lider",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Mi lider se centra en evitar que volvamos  a cometer los errores, nos encamina a mejorar en la funciòn",
+            up: "Nos invita a reflexionar y navegar nuestras emociones y desarrollar perseverancia ",
+            mi: "en un nivel intermedio",
+            ti: "Cuando las cosas no salen bien",
+            ty: 0,
+            ca: sub_category.id,
+        }
+qlist <<{
+            lo: "Probamos la soluciòn directo con el usuario",
+            up: "Mi lider asegura que probemos en pequeño, iteremos antes de lanzar la soluciòn",
+            mi: "en un nivel intermedio",
+            ti: "Cuando lanzamos nuevas soluciones",
+            ty: 0,
+            ca: sub_category.id,
+        }
 
 qlist.each do |q| 
     index = index.next
