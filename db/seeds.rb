@@ -2,23 +2,24 @@ index = 0
 
 boss = User.create(name: "Boss", email: "boss@email.com", middlename: "Bossier", lastname: "James")
 member = User.create(name: "Member 1", leader: boss, email: "univcotincodeable@gmail.com", middlename: "Employee", lastname: "James")
-member2 = User.create(name: "Member 2", leader: boss, email: "member2@gmail.com", middlename: "Employee", lastname: "James")
+member2 = User.create(name: "Member 2", leader: member, email: "member2@gmail.com", middlename: "Employee", lastname: "James")
 test1 = Test.create(title: "Medición de liderazgo", description: "test_description")
 index = 0
 qlist = []
 #crear una categoria
 parent_category = Category.create(name: "Entrega Resultados", weight: 1)
 pp parent_category
-
-
-
+result = Result.create( category_id: sub_category.id, min_range: 1, max_range: 50)
+description = Description.create(result_id: result.id,title: "1", body: "Presenta oportunidades en la dimensión de Entrega resultados. Esto quiere decir que existen oportunidades en 1 o en los 2 subdimensiones.")
+result = Result.create( category_id: sub_category.id, min_range: 51, max_range: 65)
+description = Description.create(result_id: result.id,title: "1", body: "Vienes desarrollando compartimientos que te acercan a tener como fortaleza esta dimensión. Enfócate en la constancia y consistencia en tu forma de gestionar al equipo.")
+result = Result.create( category_id: sub_category.id, min_range: 66, max_range: 100)
+description = Description.create(result_id: result.id,title: "1", body: "Hoy el equipo reconoce en tu forma de gestionar una fortaleza en esta dimensión. Asegura de mantener esos comportamientos y sigue retándote.")
 
 
 #crear sub categoria
 sub_category = Category.create(name: "Liderar a Otros - Ejecuta con Efectividad", parent_id: parent_category.id, weight: 1 )
 pp sub_category
-
-
 
 result = Result.create( category_id: sub_category.id, min_range: 1, max_range: 50)
 description = Description.create(result_id: result.id,title: "1", body: "Organiza el trabajo y planifica las responsabilidades de todos los miembros del equipo.")
@@ -74,6 +75,23 @@ qlist <<
 #crear sub categoria
 sub_category = Category.create(name: "Liderar a Otros - Conecta los logros con el propósito", parent_id: parent_category.id, weight: 1 )
 pp sub_category
+
+
+result = Result.create( category_id: sub_category.id, min_range: 1, max_range: 50)
+description = Description.create(result_id: result.id,title: "1", body: "Acércate al propósito organizacional y esfuérzate en entenderlo.")
+description = Description.create(result_id: result.id,title: "2", body: "Analiza cómo impactas desde tu gestión con el propósito organizacional.")
+description = Description.create(result_id: result.id,title: "3", body: "Invierte tiempo en conversar con tu equipo sobre el propósito organizacional y las responsabilidades del área")
+description = Description.create(result_id: result.id,title: "4", body: "Asegúrate que los miembros de tu equipo conozcan bien el propósito y la conexión con su función.")
+
+result = Result.create( category_id: sub_category.id, min_range: 51, max_range: 65)
+description = Description.create(result_id: result.id,title: "1", body: "Reflexiona sobre tu conocimiento y entendimiento del propósito organizacional, analiza que significa lo que queremos conseguir como organización.")
+description = Description.create(result_id: result.id,title: "2", body: "Genera espacios con tu equipo para hablar del propósito y como desde el área contribuyen")
+
+result = Result.create( category_id: sub_category.id, min_range: 66, max_range: 100)
+description = Description.create(result_id: result.id,title: "1", body: "Invita al equipo a reflexionar sobre el impacto del área en el logro del propósito organizacional.")
+description = Description.create(result_id: result.id,title: "2", body: "Compromete al equipo a lograr y dar visibilidad del impacto y genera un plan de trabajo e invita a otras áreas hacer lo mismo.")
+description = Description.create(result_id: result.id,title: "3", body: "Se un agente de cambio participa y se vocal con el propósito organizacional en tus interacciones con otras áreas.")
+
 qlist << 
     {
         lo: "No lo tiene presente en el dìa a dìa ",
@@ -570,6 +588,13 @@ UserTest.create(
     user_id: 2,
     test_id: 1,
     evaluated_id: 1,
+    status: 0,
+    token:  SecureRandom.hex(16)
+)
+UserTest.create(
+    user_id: 2,
+    test_id: 1,
+    evaluated_id: 2,
     status: 0,
     token:  SecureRandom.hex(16)
 )

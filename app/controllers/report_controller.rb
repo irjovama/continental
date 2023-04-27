@@ -70,13 +70,8 @@ end
 
 class ReportController < ApplicationController
     def index
-        params = {
-            test_id: 1,
-            finish: 1,
-            boss_id: 1
-        }
         response = obj_response(params)
-        questions = UserTest.find_by(evaluated_id: params[:boss_id], status: params[:finish], test_id: params[:test_id]).test.questions
+        questions = UserTest.find_by(evaluated_id: params[:boss_id], status: 1, test_id: params[:test_id]).test.questions
         # #create categories
         response[:categories] =create_categories(questions)
 
