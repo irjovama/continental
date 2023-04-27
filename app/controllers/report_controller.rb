@@ -95,7 +95,7 @@ class ReportController < ApplicationController
                     response[:categories][index][:self_average] = response[:categories][index][:self_count_questions].positive? && response[:categories][index][:self_evaluation] / response[:categories][index][:self_count_questions]
                 
                     response[:categories][index][:sub_categories][sub_index][:self_count_questions] += 1
-                    response[:categories][index][:sub_categories][sub_index][:self_evaluation] += q.evaluation * question.weight
+                    response[:categories][index][:sub_categories][sub_index][:self_evaluation] += q.evaluation.to_i * question.weight
                     response[:categories][index][:sub_categories][sub_index][:self_average] = response[:categories][index][:sub_categories][sub_index][:self_count_questions].positive? && response[:categories][index][:sub_categories][sub_index][:self_evaluation] / response[:categories][index][:sub_categories][sub_index][:self_count_questions]
                 else
                     response[:test][:members_count_questions] += 1
