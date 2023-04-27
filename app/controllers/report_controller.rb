@@ -118,12 +118,12 @@ class ReportController < ApplicationController
         rend = response[:categories].map do |parent|
             Result.where("category_id = ? and ? between min_range and max_range", parent[:id], parent[:members_average] * 10)
             .map do |r| 
-                parent[:results] << r.descriptions[0]
+                parent[:results] << r.descriptions
             end
             parent[:sub_categories].map do |children|
                 Result.where("category_id = ? and ? between min_range and max_range", children[:id], children[:members_average] * 10)
                 .map do |r| 
-                    children[:results] << r.descriptions[0]
+                    children[:results] << r.descriptions
                 end
             end
             parent
