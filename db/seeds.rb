@@ -1,9 +1,37 @@
 
-boss = User.create(name: "Boss", email: "boss@email.com", middlename: "Bossier", lastname: "James")
-member = User.create(name: "Member 1", leader: boss, email: "univcotincodeable@gmail.com", middlename: "Employee", lastname: "James")
-member2 = User.create(name: "Member 2", leader: member, email: "member2@gmail.com", middlename: "Employee", lastname: "James")
 @test1 = Test.create(title: "Medición de liderazgo", description: "test_description")
 @index = 1;
+
+
+users = [
+    {name: "Boss", email: "boss@email.com", middlename: "Bossier", lastname: "James"},
+    {name: "Member 1", email: "univcotincodeable@gmail.com", middlename: "Employee", lastname: "James"},
+    {name: "Member 2", email: "member2@gmail.com", middlename: "Employee", lastname: "James"}
+]
+
+leader = nil
+users.each do |u|
+    u[:leader_id] = leader;
+    user = User.create(u)
+    if user
+        p "user created #{user}"
+        unless leader.nil?
+            ut = UserTest.create(
+                user: user,
+                test: @test1,
+                evaluated_id: leader,
+                status: 0,
+                token: SecureRandom.hex(16)
+            )
+            p "Test invitation created #{ut}" unless ut.errors.nil?
+            p ut.errors if ut.errors.nil?
+        end
+        leader = user.id
+    else
+        p leader.errors
+    end
+end
+
 categories = [
     {
         name: "General", 
@@ -537,7 +565,8 @@ categories = [
                         ]
                     }
                 ]
-            }
+            },
+            ##pendiente aun no la cargan en el excel
         ]
     }
 ]
