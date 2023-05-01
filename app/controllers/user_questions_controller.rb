@@ -31,6 +31,7 @@ class UserQuestionsController < ApplicationController
 
   private
 
+
   def set_user_question
     @user_question = UserQuestion.find(params[:id])
   end

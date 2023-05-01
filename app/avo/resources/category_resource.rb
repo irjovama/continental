@@ -10,6 +10,7 @@ class CategoryResource < Avo::BaseResource
   field :name, as: :text
   field :parent_id, as: :number
   field :weight, as: :number
+  field :description, as: :text
   field :sub_categories, as: :has_many
   field :parent, as: :belongs_to
   field :results, as: :has_many

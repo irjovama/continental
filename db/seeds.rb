@@ -4,7 +4,7 @@
 
 
 users = [
-    {name: "Boss", email: "boss@email.com", middlename: "Bossier", lastname: "James"},
+    {name: "Boss", email: "irjovama@gmail.com", middlename: "Bossier", lastname: "James"},
     {name: "Member 1", email: "univcotincodeable@gmail.com", middlename: "Employee", lastname: "James"},
     {name: "Member 2", email: "member2@gmail.com", middlename: "Employee", lastname: "James"}
 ]
@@ -108,6 +108,7 @@ categories = [
             {
                 name: "Entrega de resultados",
                 weight: 1,
+                description: "Esta dimensión de liderazgo está enfocada en asegurar la forma y el camino que transita un líder para conseguir las metas trazadas como organización. Tiene dos sub dimensiones",
                 results: [],
                 sub_categories: [
                     {
@@ -149,6 +150,7 @@ categories = [
                             {
                                 name: "Ejecuta con efectividad",
                                 weight: 1,
+                                description: "hace referencia al cómo dirijo a mi equipo y cómo hago un buen uso de los recursos que tenemos a disposición",
                                 questions: [
                                     {title: 'Para conseguir los resultados deseados mi lìder', lower: 'Da tareas especificas sin asegurar alineamiento y conexiòn como equipo', mid: 'comportamiento intermedio', upper: 'Se enfoca en asegurar que todos entendemos el objetivo y nos organiza para todos contribuir y lograrlo.'},
                                     {title: 'Al asignarme tareas mi lider ', lower: 'Mi líder me da confianza, me indica qué debo hacer y para cuándo debe estar listo', mid: 'comportamiento intermedio', upper: 'Mi lider reconoce mis fortalezas, asegurando que entiendo el objetivo y como impacto en un logro mayor'},
@@ -188,6 +190,7 @@ categories = [
                             {
                                 name: "Conecta los logros con el propòsito",
                                 weight: 1,
+                                description: "hace referencia a que tan internalizado tenemos el propósito organizacional y cómo lo conectamos con la función que lideramos",
                                 questions: [
                                     {title: 'Cuando se trata del proposito de la organizaciòn mi lider', lower: 'No lo tiene presente.', mid: 'comportamiento intermedio', upper: 'Vive el proposito en cada cosa que hacemos '},
                                     {title: 'Cuando iniciamos un proyecto o asumimos nuevos desafios mi lider ', lower: 'No necesariamente lo conecta con como lograr lo que nos planteamos nos acerca a cumplir nuestro proposito.', mid: 'comportamiento intermedio', upper: 'Comparte con el equipo como el logro del proyecto o el nuevo desafio nos acerca a vivir nuestro proposito.'},
@@ -257,6 +260,7 @@ categories = [
                             {
                                 name: "Ejecuta con efectividad",
                                 weight: 1,
+                                description: "hace referencia al cómo dirijo a mi equipo y cómo hago un buen uso de los recursos que tenemos a disposición",
                                 questions: [
                                     {title: 'Cuando iniciamos un proyecto mi lider ', lower: 'Nos indica qué debemos hacer y para cuando debe estar listo', mid: 'comportamiento intermedio', upper: 'Nos involucra en la forma de conseguir resultados, escucha nuestras propuestas, nos compromete y motiva '},
                                     {title: 'Cuando hablamos de motivaciòn', lower: 'mi lider por momentos reconoce que me motiva', mid: 'comportamiento intermedio', upper: 'Mi lider sabe como motivarnos (al equipo y a mi) y maximizar nuestro  potencial'},
@@ -299,6 +303,7 @@ categories = [
                             {
                                 name: "Conecta los logros con el propòsito",
                                 weight: 1,
+                                description: "hace referencia a que tan internalizado tenemos el propósito organizacional y cómo lo conectamos con la función que lideramos",
                                 questions: [
                                     {title: 'La conexiòn de mi lider con el proposito', lower: 'No es muy clara. ', mid: 'comportamiento intermedio', upper: 'Es muy genuina y esta presente en sus interacciones'},
                                     {title: 'Cuando mi lider propone nuevos proyectos', lower: 'Nos indica la tarea a realizar y los tiempo para cumplirlos', mid: 'comportamiento intermedio', upper: 'Nos comparte la visiòn del proyecto, nos indica nuestra responsabilidad y como nos acerca a seguir viviendo nuestro proposito'},
@@ -343,6 +348,7 @@ categories = [
                 name: "Genera vinculos genuinos",
                 weight: 1,
                 results: [],
+                description: "Esta dimensión de liderazgo se enfoca en las relaciones que formamos al interno de la organización, no solo con el equipo directo, sino también con el resto de áreas. Además, construye sobre cómo esas relaciones, cuando se basan en la confianza y transparencia permiten sentirnos cómodos y seguros. Tiene dos subdimensiones",
                 sub_categories: [
                     {
                         name: "Liderar a otros",
@@ -374,6 +380,7 @@ categories = [
                             {
                                 name: "Seguridad psicològica y Bienestar",
                                 weight: 1,
+                                description: "hace referencia al entorno y ambiente que genero para que las personas puedan expresar sus ideas, desafiar las ideas de otros y sentirse incluidos de manera general en las dinámicas del equipo.",
                                 questions: [
                                     {title: 'Cuando tenemos que abordar problemas o nuevas situaciones', lower: 'Mi lìder propone buenas alternativas y caminos de acciòn ', mid: 'comportamiento intermedio', upper: 'Siento que podemos aportar ideas para definir posturas y  un marco de acciòn'},
                                     {title: 'Cuando tenemos diversas ideas en el equipo', lower: 'Siempre prevalecen las de mi lider ', mid: 'comportamiento intermedio', upper: 'Siento que mis ideas y opiniones son valoradas por mi lider'},
@@ -414,6 +421,7 @@ categories = [
                             {
                                 name: "Desarrollo de talento",
                                 weight: 1,
+                                description: "hace referencia al espacio que dedico a desarrollar a mis equipos, no solo desde el conocimiento funcional sino desde el desarrollo de sus competencias y el acompañamiento que le brindo",
                                 questions: [
                                     {title: 'Recibo feedback de mi lider', lower: 'solo cuando los procesos lo demandan', mid: 'comportamiento intermedio', upper: 'De forma constante y oportuna. '},
                                     {title: 'El feedback de que recibo de mi lider', lower: 'Es orientado a la tarea y qué cosas debo hacer diferente', mid: 'comportamiento intermedio', upper: 'Esta relacionado a como seguir desarrollandome, enfocado en competencias'},
@@ -482,6 +490,7 @@ categories = [
                             {
                                 name: "Seguridad psicológica y bienestar",
                                 weight: 1,
+                                description: "hace referencia al entorno y ambiente que genero para que las personas puedan expresar sus ideas, desafiar las ideas de otros y sentirse incluidos de manera general en las dinámicas del equipo.",
                                 questions: [
                                     {title: 'Cuando tenemos oportunidades de crear cosas nuevas', lower: 'Mi lìder nos transmite su visiòn y hay poca flexibilidad para ver otras posibilidades. ', mid: 'comportamiento intermedio', upper: 'Nos invita a pensar fuera de la caja, escucha nuestras ideas y las reta'},
                                     {title: 'Cuando tenemos diversas ideas en el equipo', lower: 'Mi lìder siempre termina teniendo la razòn', mid: 'comportamiento intermedio', upper: 'Mi lider construye sobre las ideas del equipo, logrando encontrar alternativas muy potentes'},
@@ -523,6 +532,7 @@ categories = [
                             {
                                 name: "Desarrollo del Talento",
                                 weight: 1,
+                                description: "hace referencia al espacio que dedico a desarrollar a mis equipos, no solo desde el conocimiento funcional sino desde el desarrollo de sus competencias y el acompañamiento que le brindo",
                                 questions: [
                                     {title: 'El feedback que me da mi lider me permite', lower: 'Hacer mejor mi trabajo', mid: 'comportamiento intermedio', upper: 'Evolucionar como profesional y persona. Identifico mis oportunidades pero tambien soy conciente de mis fortalezas. '},
                                     {title: 'Mi lider orienta mi desarrollo profesional', lower: 'En algunas oportunidades', mid: 'comportamiento intermedio', upper: 'Siempre esta dispuesto a retarme y darme desafios que me ayuden a crecer'},
@@ -575,7 +585,8 @@ def create(category, parent = nil)
     ca = Category.create(
                             name: category[:name], 
                             weight: category[:weight], 
-                            parent: parent
+                            parent: parent,
+                            description: category[:description]
                         )
     p "new Category #{category[:name]} created #{ca}" unless ca.nil?
     unless category[:questions].nil?
@@ -621,15 +632,15 @@ end
 
 categories.each do |general|
     #general
-    parent = create(general, nil)
+    parent1 = create(general, nil)
     general[:sub_categories].each do |sub1|
         # pp sub1
-        parent = create(sub1, parent)
+        parent2 = create(sub1, parent1)
         sub1[:sub_categories].each do |sub2|
             # pp sub1
-            parent = create(sub2, parent)
+            parent3 = create(sub2, parent2)
             sub2[:sub_categories].each do |sub3|
-                parent = create(sub3, parent)
+                parent4 = create(sub3, parent3)
             end
         end
     end

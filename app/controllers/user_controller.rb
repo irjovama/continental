@@ -34,6 +34,7 @@ class UserController < ApplicationController
         end
 
     end
+   
     def magic_link
         begin
             user = User.where("email=?", params[:email]).first
