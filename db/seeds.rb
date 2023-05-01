@@ -31,7 +31,13 @@ users.each do |u|
         p leader.errors
     end
 end
-
+ut = UserTest.create(
+    user_id: 1,
+    test_id: 1,
+    evaluated_id: 1,
+    status: 0,
+    token: SecureRandom.hex(16)
+)
 categories = [
     {
         name: "General", 
@@ -188,7 +194,7 @@ categories = [
                                 ]
                             },
                             {
-                                name: "Conecta los logros con el propòsito",
+                                name: "Conecta los logros con el propósito",
                                 weight: 1,
                                 description: "hace referencia a que tan internalizado tenemos el propósito organizacional y cómo lo conectamos con la función que lideramos",
                                 questions: [
@@ -301,7 +307,7 @@ categories = [
                                 ]
                             },
                             {
-                                name: "Conecta los logros con el propòsito",
+                                name: "Conecta los logros con el propósito",
                                 weight: 1,
                                 description: "hace referencia a que tan internalizado tenemos el propósito organizacional y cómo lo conectamos con la función que lideramos",
                                 questions: [
@@ -378,7 +384,7 @@ categories = [
                         ],
                         sub_categories: [
                             {
-                                name: "Seguridad psicològica y Bienestar",
+                                name: "Seguridad psicológica y bienestar",
                                 weight: 1,
                                 description: "hace referencia al entorno y ambiente que genero para que las personas puedan expresar sus ideas, desafiar las ideas de otros y sentirse incluidos de manera general en las dinámicas del equipo.",
                                 questions: [
@@ -530,7 +536,7 @@ categories = [
                                 ]
                             },
                             {
-                                name: "Desarrollo del Talento",
+                                name: "Desarrollo de talento",
                                 weight: 1,
                                 description: "hace referencia al espacio que dedico a desarrollar a mis equipos, no solo desde el conocimiento funcional sino desde el desarrollo de sus competencias y el acompañamiento que le brindo",
                                 questions: [
@@ -576,7 +582,240 @@ categories = [
                     }
                 ]
             },
-            ##pendiente aun no la cargan en el excel
+            {
+                name: "Construye y cuestiona el futuro",
+                weight: 1,
+                description: "Esta dimensión se enfoca en que los lìderes deben poder soñar y hacer realidad los nuevos caminos que necesitamos como organización. Cómo manejo ese proceso y qué aprendizajes genero. Tiene dos subdimensiones. ",
+                results: [],
+                sub_categories: [
+                    {
+                        name: "Liderar a otros",
+                        weight: 1,
+                        results: [
+                            {
+                                min_range: 1,
+                                max_range: 50,
+                                descriptions: [
+                                    {
+                                        title: "body",
+                                        body: "Presenta oportunidades la dimensión de Cuestiona y construye el futuro. Esto quiere decir que existen oportunidades en 1 o en los 2 subdimensiones.",
+                                    }
+                                ]
+                            },
+                            {
+                                min_range: 51,
+                                max_range: 65,
+                                descriptions: [
+                                    {
+                                        title: "body",
+                                        body: "Presenta oportunidades la dimensión de Cuestiona y construye el futuro. Esto quiere decir que existen oportunidades en 1 o en los 2 subdimensiones.",
+                                    }
+                                ]
+                            },
+                            {
+                                min_range: 66,
+                                max_range: 100,
+                                descriptions: [
+                                    {
+                                        title: "body",
+                                        body: "Hoy el equipo reconoce en tu forma de gestionar una fortaleza en esta dimensión. Asegura de mantener esos comportamientos y sigue retándote.",
+                                    }
+                                ]
+                            },
+                        ],
+                        sub_categories: [
+                            {
+                                name: "Reta el status quo",
+                                weight: 1,
+                                description: "hace referencia a la capacidad de poner en perspectiva la forma como hacemos las cosas, inclusive las cosas que hoy generan valor.",
+                                questions: [
+                                    {title: 'Cuando mi lider cuando debe resolver un problema', lower: 'Busca los caminos conocidos', mid: 'comportamiento intermedio', upper: 'Nos impulsa a probar caminos nuevos'},
+                                    {title: 'Mi lider toma riesgos', lower: 'Pocas veces', mid: 'comportamiento intermedio', upper: 'Analiza el contexto, y toma riesgos calculados. '},
+                                    {title: 'Cuando se trata de tomar una decisiòn', lower: 'Mi lider analiza las variables y toma decisiones basado en experiencias pasadas', mid: 'comportamiento intermedio', upper: 'Mi lider nos involucra, plantea el desafio y exploramos aspectos conocidos y nos invita a ir màs alla descubriendo nuevas alternativas'},
+                                    {title: 'Cuando las cosas no salen bien', lower: 'Mi lider pone en evidencia que error cometimos y asegura que no lo volvamos a cometer', mid: 'comportamiento intermedio', upper: 'Mi lider reconoce el esfuerzo, busca generar aprendizajes y nos compromete a seguir exigiendonos. '},
+                                ],
+                                results: [
+                                    {
+                                        min_range: 0,
+                                        max_range: 50,
+                                        descriptions: [
+                                            {title: '1', body: '· Analiza tu forma de resolver problemas, y revisa si estas proponiendo nuevos caminos, o te enfocas en replicar aquellos que funcionaron en el pasado.'},
+                                            {title: '2', body: '· Revisa si tu proceso para tomar decisiones incorpora variables más allá de la experiencia pasada. Reconoce tu intuición, ideas del equipo y caminos no explorados como parte de posibles soluciones.'},
+                                            {title: '3', body: '· Capitaliza el error. Cuando las cosas no salen bien busca generar aprendizajes sobre lo ocurrido, habla del tema con el equipo y genera compromiso desde ahí.'},
+                                        ]
+                                    },
+                                    {
+                                        min_range: 51,
+                                        max_range: 65,
+                                        descriptions: [
+                                            {title: '1', body: '· Revisa con tu equipo la forma como abordan los problemas y desafíos. Analiza que tan disruptivos están siendo y plantea caminos.'},
+                                            {title: '2', body: '· Analiza si los proyectos que tienen vigentes los estas gestionando de formas distintas o replicando patrones. Rétate a pensar diferente.'},
+                                            {title: '3', body: '· Recuerda que las cosas que hoy están funcionando pueden siempre ser mejores. Cuestiónalas y propón un plan de trabajo.'},
+                                        ]
+                                    },
+                                    {
+                                        min_range: 66,
+                                        max_range: 100,
+                                        descriptions: [
+                                            {title: '1', body: '· Sigue impulsando la generación de nuevas ideas y caminos para resolver los desafíos del equipo. Recuerda acompañar al equipo en la ejecución y despliegue.'},
+                                            {title: '2', body: '· Sigue tomando riesgos usando la data, el pasado, tendencias e intuición. Toma las cosas buenas y no tan buenas y genera aprendizajes con el equipo.'},
+                                            {title: '3', body: '· Sigue siendo un líder que escucha al equipo y considera distintas variables, vuelve con tu equipo del porqué de la decisión y que elementos consideraste.'},
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                name: "Actitud emprendedora",
+                                weight: 1,
+                                description: "hace referencia a la mentalidad de probar, iterar y generar aprendizajes; de acompañar al equipo en la toma de decisiones",
+                                questions: [
+                                    {title: 'Cuando queremos probar hacer las cosas diferente', lower: 'Mi lider nos dice que debemos hacer', mid: 'comportamiento intermedio', upper: 'Mi lider fomenta que traigamos ideas diferentes y nos ayuda a llevarlas a cabo'},
+                                    {title: 'El acompañamiento de mi lider en los proyectos', lower: 'Es muy enfocado a la tarea', mid: 'comportamiento intermedio', upper: 'Es cercano, asegura que sepamos què hacer, como hacerlo y como nos estamos sintiendo'},
+                                    {title: 'Cuando las àreas nos piden que hagamos las cosas diferentes', lower: 'Mi lider se pone a la defensiva y pone excusas ', mid: 'comportamiento intermedio', upper: 'Es muy abierto a las sugerencias y escucha las opiniones de los demàs '},
+                                    {title: 'Cuando lanzamos nuevas soluciones', lower: 'Probamos la soluciòn directo con el usario', mid: 'comportamiento intermedio', upper: 'Mi lider asegura que probemos en pequeño, iteremos antes de lanzar la soluciòn'},
+                                ],
+                                results: [
+                                    {
+                                        min_range: 0,
+                                        max_range: 50,
+                                        descriptions: [
+                                            {title: '1', body: '· Analiza tu actitud frente al feedback y cambio. Recuerda la importancia de la apertura a ver las cosas con diversos prismas en búsqueda de la mejora continua'},
+                                            {title: '2', body: '· Encuentra comodidad en probar soluciones en pequeño. Toma riesgos calculados y disfruta el proceso de testear tus soluciones antes de lanzarlas a toda la organización o estudiantes.'},
+                                            {title: '3', body: '· Reflexiona sobre tu rol en los proyectos, que tan presente estas en la gestiòn o acompañamiento de tu equipo.'},
+                                        ]
+                                    },
+                                    {
+                                        min_range: 51,
+                                        max_range: 65,
+                                        descriptions: [
+                                            {title: '1', body: '· Recuerda que debes poner en práctica las ideas del equipo y las propias. Analiza el contexto y asegura de llevarlas a cabo.'},
+                                            {title: '2', body: '· Pide feedback de tu equipo para analizar que tan abierto a nuevas formas de hacer las cosas eres. Escucha atentamente a tu equipo y define un plan.'},
+                                            {title: '3', body: '· Analiza tu acompañamiento y forma de trabajar los proyectos con tu equipo y otras área, recuerda la importancia de tener una postura abierta y receptiva.'},                                       
+                                        ]
+                                    },
+                                    {
+                                        min_range: 66,
+                                        max_range: 100,
+                                        descriptions: [
+                                            {title: '1', body: '· Sigue impulsando acciones que permitan al equipo diseñar nuevas soluciones y explorar nuevos caminos.'},
+                                            {title: '2', body: '· Se cercano, acompaña a tu equipo en los proyectos que participan y guíalos.'},
+                                            {title: '3', body: '· Sigue siendo ejemplo de probar en pequeño y se consistente.'},
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        name: "Lider Organizacional",
+                        weight: 1,
+                        results: [
+                            {
+                                min_range: 1,
+                                max_range: 50,
+                                descriptions: [
+                                    {title: 'body', body: 'Presenta oportunidades la dimensión de Entrega resultados. Esto quiere decir que existen oportunidades en 1 o en los 2 subdimensiones.'},
+                                ]
+                            },
+                            {
+                                min_range: 51,
+                                max_range: 65,
+                                descriptions: [
+                                    {title: 'body', body: 'Presenta oportunidades la dimensión de Entrega resultados. Esto quiere decir que existen oportunidades en 1 o en los 2 subdimensiones.'},
+                                ]
+                            },
+                            {
+                                min_range: 66,
+                                max_range: 100,
+                                descriptions: [
+                                    {title: 'body', body: 'Presenta oportunidades la dimensión de Entrega resultados. Esto quiere decir que existen oportunidades en 1 o en los 2 subdimensiones.'},
+                                ]
+                            },
+                        ],
+                        sub_categories: [
+                            {
+                                name: "Reta el status quo",
+                                weight: 1,
+                                description: "hace referencia a la capacidad de poner en perspectiva la forma como hacemos las cosas, inclusive las cosas que hoy generan valor.",
+                                questions: [
+                                    {title: 'Mi lider cuando debe resolver un problema', lower: 'Busca los caminos conocidos', mid: 'comportamiento intermedio', upper: 'Nos impulsa a probar caminos nuevos y nos acompaña '},
+                                    {title: 'Según mi lider cuando algo esta bien', lower: 'Aseguremos que se mantenga asi. ', mid: 'comportamiento intermedio', upper: 'Siempre puede ser mejor'},
+                                    {title: 'Cuando debemos generar aprendizajes como organizaciòn', lower: 'Tiene un rol pasivo, no se involucra a menos que su funciòn este inmersa', mid: 'comportamiento intermedio', upper: 'Participa reconociendo las cosas que debemos mejorar, en que somos buenos y se pone al servicio'},
+                                    {title: 'Cuando debemos generar transformaciones a los procesos que gestionamos', lower: 'A mi lider le cuesta ver caminos distintos a los usuales', mid: 'comportamiento intermedio', upper: 'Mi lider se compromete con analizar y proponer soluciones diferentes, nos impulsa a cuestionar y pensar màs allà'},
+                                ],
+                                results: [
+                                    {
+                                        min_range: 0,
+                                        max_range: 50,
+                                        descriptions: [
+                                            {title: '1', body: '· Reflexiona sobre como abordas la solución de problemas y que tan abierto eres a recorrer nuevos caminos y no enfocarte en caminos comprobados.'},
+                                            {title: '2', body: '· Involúcrate en el desarrollo de aprendizajes para la organización. Cuando las cosas no funcionan como esperamos son una fuente muy importante de conocimiento que debemos capitalizar.'},
+                                            {title: '3', body: '· Reta las cosas que hoy funcionan bien, no porque estén bien no quiere decir que puedan estar mejor.'},
+                                        ]
+                                    },
+                                    {
+                                        min_range: 51,
+                                        max_range: 65,
+                                        descriptions: [
+                                            {title: '1', body: '· Sigue cuestionando los procesos vigentes, y busca evolucionarlas poniendo en prácticas las alternativas relevadas.'},
+                                            {title: '2', body: '· Impulsa a tu equipo a seguir generando nuevas ideas y caminos no recorridos para solucionar problemas.'},
+                                            {title: '3', body: '· Sigue generando aprendizajes de los procesos que gestionas, lo que hicimos bien o no tan bien son fuente de conocimiento muy relevante para la organización.'},                                            
+                                        ]
+                                    },
+                                    {
+                                        min_range: 66,
+                                        max_range: 100,
+                                        descriptions: [
+                                            {title: '1', body: '· Sigue cuestionando las formas establecidas de hacer las cosas. No olvides la asertividad y la influencia para lograr cambios.'},
+                                            {title: '2', body: '· Incentiva a tu equipo y otras áreas a probar caminos no conocidos. Acompaña y sigue brindando la confianza que el equipo necesita.'},                                            
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                name: "Actitud emprendedora",
+                                weight: 1,
+                                description: "hace referencia a la mentalidad de probar, iterar y generar aprendizajes; de acompañar al equipo en la toma de decisiones.",
+                                questions: [
+                                    {title: 'Cuando las cosas no salen como esperamos', lower: 'Mi lìder se estresa y se centra en los errores', mid: 'comportamiento intermedio', upper: 'Mi lider nos invita a la reflexiòn, aprender y nos acompaña en el manejo de las emociones'},
+                                    {title: 'Me siento respaldado por mi lider', lower: 'En algunas ocasiones', mid: 'comportamiento intermedio', upper: 'Siempre '},
+                                    {title: 'Cuando las cosas no salen bien', lower: 'Mi lider se centra en evitar que volvamos  a cometer los errores, nos encamina a mejorar en la funciòn', mid: 'comportamiento intermedio', upper: 'Nos invita a reflexionar y navegar nuestras emociones y desarrollar perseverancia'},
+                                    {title: 'Cuando lanzamos nuevas soluciones', lower: 'Probamos la soluciòn directo con el usuario', mid: 'comportamiento intermedio', upper: 'Mi lider asegura que probemos en pequeño, iteremos antes de lanzar la soluciòn'},
+                                ],
+                                results: [
+                                    {
+                                        min_range: 0,
+                                        max_range: 50,
+                                        descriptions: [
+                                            {title: '1', body: '· Cuando las cosas no salen bien, evita centrarte en el error. Enfoca tus esfuerzos para generar aprendizajes.'},
+                                            {title: '2', body: '· Recuerda la importancia de acompañar a tu equipo en los desafíos, reúnete con ellos y definan las rutas más adecuadas para estar presente.'},
+                                            {title: '3', body: '· Identifica que proyectos que te permitan iterar y probar posibles soluciones en pequeño. Encuentra comodidad en testear, aprender y evolucionar antes de salir a la organización.'},                                            
+                                        ]
+                                    },
+                                    {
+                                        min_range: 51,
+                                        max_range: 65,
+                                        descriptions: [
+                                            {title: '1', body: '· Asume la responsabilidad y sé vulnerable cuando las cosas no han salido bien. Impulsa la reflexión para generar aprendizajes.'},
+                                            {title: '2', body: '· Se constante en el acompañamiento al equipo, esfuérzate por dar el espacio a tus equipos sin que se sientan solos.'},
+                                            {title: '3', body: '· Reflexiona sobre tu forma de gestionar y manejar proyectos. Es importante identificar aprendizajes, luego hazlo con el equipo.'},                                       
+                                        ]
+                                    },
+                                    {
+                                        min_range: 66,
+                                        max_range: 100,
+                                        descriptions: [
+                                            {title: '1', body: '· Sigue dando el ejemplo, reflexiona sobre las cosas que se pueden hacer diferente. Asume el manejo de las emociones que se generan.'},
+                                            {title: '2', body: '· Asegura seguir acompañando a tus equipos y que sientan tu presencial y rol en los proyectos que tienen bajo su responsabilidad'},
+                                            {title: '3', body: '· Sigue impulsando el probar en pequeño, iterar y testar soluciones antes de lanzarlas a toda la organización.'},
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
         ]
     }
 ]
