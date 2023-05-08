@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   resources :descriptions, only: [:index, :show, :destroy, :update, :create], path: '/api/v1/descriptions'
   resources :results, only: [:index, :show, :destroy, :update, :create], path: '/api/v1/results'
   resources :user_questions, only: [:index, :show, :destroy, :create], path: '/api/v1/user_questions'
-  
+  resources :leaderships, only: [:index, :show, :destroy, :update, :create], path: '/api/v1/leaderships' 
+
 
   get '/api/v1/report/test/:test_id/leader/:leader_id/page/1', to: 'report#page1'
   get '/api/v1/report/test/:test_id/leader/:leader_id/page/2', to: 'report#page2'
