@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :members, class_name: "User", foreign_key: "leader_id"
-    belongs_to :leader, class_name: "User", optional: true
+    has_many :leaders_position, :class_name => 'Leadership', :foreign_key => 'leader_id'
+    has_many :employees_position, :class_name => 'Leadership', :foreign_key => 'employee_id'
 
     has_many :user_tests, dependent: :destroy
     has_many :tests, through: :user_tests

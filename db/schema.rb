@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_01_011552) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_08_195644) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.integer "parent_id"
@@ -28,6 +28,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_01_011552) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["result_id"], name: "index_descriptions_on_result_id"
+  end
+
+  create_table "leaderships", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "employee_id"
+    t.integer "leader_id"
+    t.integer "leadership_type", null: false
+    t.index ["employee_id"], name: "index_leaderships_on_employee_id"
+    t.index ["leader_id"], name: "index_leaderships_on_leader_id"
   end
 
   create_table "options", force: :cascade do |t|
@@ -72,6 +82,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_01_011552) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_leaders", force: :cascade do |t|
+    t.integer "leadership_type"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "leader_id", null: false
+    t.index ["user_id"], name: "index_user_leaders_on_user_id"
+  end
+
   create_table "user_questions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "question_id", null: false
@@ -99,17 +118,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_01_011552) do
     t.string "middlename"
     t.string "lastname"
     t.string "email"
-    t.integer "leader_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["leader_id"], name: "index_users_on_leader_id"
   end
 
   add_foreign_key "descriptions", "results"
+  add_foreign_key "leaderships", "users", column: "employee_id"
+  add_foreign_key "leaderships", "users", column: "leader_id"
   add_foreign_key "questions", "categories"
   add_foreign_key "questions", "options"
   add_foreign_key "questions", "tests"
   add_foreign_key "results", "categories"
+  add_foreign_key "user_leaders", "users"
   add_foreign_key "user_questions", "questions"
   add_foreign_key "user_questions", "users"
   add_foreign_key "user_tests", "tests"
