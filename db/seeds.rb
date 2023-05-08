@@ -9,6 +9,8 @@ users = [
     {name: "Member 2", email: "member2@gmail.com", middlename: "Employee", lastname: "James"}
 ]
 
+#Need to change seed file for fitting with new ERD
+#Leader_id column doesn't longer exist in User table. Now it exists in the leadership column
 leader = nil
 users.each do |u|
     u[:leader_id] = leader;
